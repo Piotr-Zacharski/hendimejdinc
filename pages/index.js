@@ -1,13 +1,28 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { createClient } from 'contentful'
 
-export default function Home() {
+export async function getStaticProps() {
+
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+})
+
+const res = await client.getEntries({ content_type: 'product'})
+
+return {
+  props: {
+    products: res.products
+  }
+}
+}
+
+
+export default function Products({ products }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>HendiMejdi</title>
-      </Head>
-      <h1>HendiMejdi</h1>
+    <div className="product-list">
+     {products.map(product =>(
+       <div key={product.sys.id}>{product.fields.title}</div>
+     ))}
     </div>
   )
 }
