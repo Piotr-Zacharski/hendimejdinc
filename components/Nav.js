@@ -12,7 +12,7 @@ const NavStyles = styled.ul`
   button {
     padding: 1rem 3rem;
     text-decoration: none;
-    color: lightpink;
+    color: black;
     text-align: center;
     justify-content: center;
     position: relative;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 body {
-  background: lightcyan;
+  background: #c5c6c7;
   margin: 0;
   font-family: 'Lato';
   font-size: 1.5em;  
@@ -23,7 +23,7 @@ header a {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    color: pink;
+    color: black;
     padding: 0 1rem;
 }
 header h1, header h2 {
