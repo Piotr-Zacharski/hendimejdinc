@@ -1,13 +1,7 @@
 import Link from 'next/link';
 import Nav from './Nav'
-import styled from 'styled-components';
+import Image from './Image'
 
-const Logo = styled.span`
-font-size: 2rem;
-align-items: center;
-justify-content: center;
-display: flex;
-`;
 
 export default function Layout({ children }) {
     return (
@@ -16,7 +10,7 @@ export default function Layout({ children }) {
                 <Link href="/">
                     <a>
                         <h1>
-                            <span>HendiMejdi</span>
+                            <div className="intro">HendiMejdi <Image /></div>
                         </h1>
                     </a>
                 </Link>

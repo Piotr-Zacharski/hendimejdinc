@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import ProductCard from '../components/ProductCard'
 
 export async function getStaticProps() {
 
@@ -11,7 +12,7 @@ const res = await client.getEntries({ content_type: 'product'})
 
 return {
   props: {
-    products: res.products
+    products: res.items
   }
 }
 }
@@ -21,8 +22,16 @@ export default function Products({ products }) {
   return (
     <div className="product-list">
      {products.map(product =>(
-       <div key={product.sys.id}>{product.fields.title}</div>
+       <ProductCard key={product.sys.id} product={product}/>
      ))}
+
+     <style jsx>{`
+     .product-list {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       grid-gap: 20px 60px;
+     }
+     `}</style>
     </div>
   )
 }
