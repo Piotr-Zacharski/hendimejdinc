@@ -13,7 +13,8 @@ const res = await client.getEntries({ content_type: 'product'})
 return {
   props: {
     products: res.items
-  }
+  },
+  revalidate: 1
 }
 }
 
