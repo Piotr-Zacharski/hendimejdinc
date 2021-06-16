@@ -57,12 +57,15 @@ export default function ProductDetails({ product }) {
           src={'https:' + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
+          className="feature"
+
         />
-        <h2>{ title }</h2>
+        <h2>{ title } <p className="price">Cena: { price }zł</p></h2>
+        
       </div>
 
       <div className="info">
-        <p>Cena: { price }zł</p>
+        
       </div>
         
       <div className="method">
@@ -74,14 +77,28 @@ export default function ProductDetails({ product }) {
         h2,h3 {
           text-transform: uppercase;
         }
-        .banner h2 {
+        .banner {
+          text-align: center;
+        }
+        .price {
           margin: 0;
-          background: #fff;
-          display: inline-block;
+          color: #777;
+          text-align: center;
+          font-size: 1rem;
+          text-transform: lowercase;
+        }
+        .banner h2 {
+          
+          text-align: center;
+          align-items: center;
+          margin: 0 auto;
+          background: lightpink;
+          color: white;
+          display: block;
           padding: 20px;
           position: relative;
-          top: -60px;
-          left: -10px;
+          top: -20px;
+          width: 700px;
           transform: rotateZ(-1deg);
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
