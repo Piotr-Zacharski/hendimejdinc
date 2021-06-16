@@ -69,7 +69,6 @@ export default function ProductDetails({ product }) {
       </div>
         
       <div className="method">
-        <h3>Opis</h3>
         <div>{documentToReactComponents(description)}</div>
       </div>
 
