@@ -40,7 +40,7 @@ export const getStaticProps = async ({ params }) => {
   }
 
   return {
-    props: { recipe: items[0] },
+    props: { product: items[0] },
     revalidate: 1
   }
 }
@@ -67,7 +67,7 @@ export default function ProductDetails({ product }) {
         
       <div className="method">
         <h3>Opis</h3>
-        <div>{documentToReactComponents(description) }</div>
+        <div>{documentToReactComponents(description)}</div>
       </div>
 
       <style jsx>{`
