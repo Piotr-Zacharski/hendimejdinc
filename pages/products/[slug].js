@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -7,8 +8,8 @@ const client = createClient({
 })
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({ 
-    content_type: "product" 
+  const res = await client.getEntries({
+    content_type: "product"
   })
 
   const paths = res.items.map(item => {
@@ -27,7 +28,7 @@ export const getStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: 'product',
     'fields.slug': params.slug
-  }) 
+  })
 
   if (!items.length) {
     return {
@@ -44,7 +45,7 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export default function RecipeDetails({ product }) {
+export default function ProductDetails({ product }) {
   if (!product) return <h2>Ooops...!</h2>
 
   const { featuredImage, title, price, description } = product.fields
@@ -66,6 +67,7 @@ export default function RecipeDetails({ product }) {
         
       <div className="method">
         <h3>Opis</h3>
+        <div>{documentToReactComponents(description) }</div>
       </div>
 
       <style jsx>{`
