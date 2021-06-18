@@ -19,20 +19,24 @@ export default function ProductCard({ product }) {
                     <p>Cena: { price }zł</p>
                 </div>
                 <div className="actions">
-                    <Link href={'/products/' + slug}><a>Opis</a></Link>
+                    <Link href={'/products/' + slug}><a>Zobacz więcej</a></Link>
                 </div>
             </div>
             <style jsx>{`
             .card {
-                transform: rotateZ(-1deg);
+                /* transform: rotateZ(-1deg); */
               }
               .content {
-                background: lightpink;
+                background: white;
                 box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
                 margin: 0;
+                
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                border-top: 1px solid black;
                 position: relative;
-                top: -40px;
-                left: -10px;
+                left: 63px;
+                width: 424px;
               }
               .info {
                 padding: 16px;
@@ -41,23 +45,51 @@ export default function ProductCard({ product }) {
                 margin: 4px 0;
                 text-transform: uppercase;
                 text-align: center;
-                color: white;
+                color: black;
               }
               .info p {
                 margin: 0;
+                padding: 10px;
                 color: #777;
                 text-align: center;
               }
               .actions {
                 margin-top: -20px;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: center;
+                width: 50%;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 8px;
+              }
+              .actions:hover {
+                margin-top: -20px;
+                display: flex;
+                justify-content: center;
+                width: 50%;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                
               }
               .actions a {
-                color: #fff;
-                background: #f01b29;
+                color: black;
+                /* background: #f01b29; */
                 padding: 16px 24px;
                 text-decoration: none;
+                font-size: 1rem;
+              }
+              .actions a:hover {
+                /* background: #f01b29; */
+                padding: 16px 24px;
+                text-decoration: none;
+                font-size: 1rem;
+                color: lightpink;
               }
               .featured {
                 align-items: center;

@@ -98,7 +98,7 @@ export default function ProductDetails({ product }) {
           position: relative;
           top: -20px;
           width: 700px;
-          transform: rotateZ(-1deg);
+          /* transform: rotateZ(-1deg); */
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
         .info p {
