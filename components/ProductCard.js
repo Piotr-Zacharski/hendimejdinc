@@ -16,13 +16,12 @@ export default function ProductCard({ product }) {
             <div className="content">
                 <div className="info">
                     <h4>{ title }</h4>
-                    <p>Cena: { price }zł</p>
+                    <p>Cena: { price } zł</p>
                 </div>
                 <div className="actions">
                     <Link href={'/products/' + slug}><a>Zobacz więcej</a></Link>
                 </div>
             </div>
-        
         </div>
     )
 }

@@ -60,7 +60,7 @@ export default function ProductDetails({ product }) {
           className="feature"
 
         />
-        <h2>{ title } <p className="price">Cena: { price }zł</p></h2>
+        <h2>{ title } <p className="price">Cena: { price } zł</p></h2>
         
       </div>
 
@@ -69,7 +69,7 @@ export default function ProductDetails({ product }) {
       </div>
         
       <div className="method">
-        <div>{documentToReactComponents(description)}</div>
+        <div className="info">{documentToReactComponents(description)}</div>
       </div>
       <div className="options">
       <label for="fittings" className="label">Kolor okucia:</label>

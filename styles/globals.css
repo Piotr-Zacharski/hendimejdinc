@@ -135,3 +135,9 @@ footer {
   color: black;
   width: 100px;
 }
+.info{
+  text-align: justify;
+  line-height: 1.5;
+  display: inline-block;
+  position: relative;
+}
