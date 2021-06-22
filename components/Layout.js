@@ -14,7 +14,6 @@ export default function Layout({ children }) {
                         </h1>
                     </a>
                 </Link>
-                <p>Strona w budowie</p>
             </header>
             <Nav />
 

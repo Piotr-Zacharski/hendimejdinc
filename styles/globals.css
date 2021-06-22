@@ -56,4 +56,82 @@ footer {
   padding: 0 20px;
   width: 100%;
   box-sizing: border-box;
+  align-items: center;
+  text-align: center;
+}
+
+/* CARD COMPONENT */
+
+.card {
+  text-decoration: none;
+  width: 312px;
+}
+.card-body {
+  text-decoration: none;
+  width: 312px;
+}
+.card-title {
+  font-size: 18px;
+  text-align: center;
+}
+.card-text {
+  font-size: 17px;
+  text-align: center;
+}
+.desc {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  width: 312px;
+}
+.card-main {
+  width: 312px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
+}
+.options {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 0;
+}
+.label {
+  font-size: 15px;
+  margin-right: 5px;
+  margin-left: 10px;
+}
+.field {
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 14px;
+  padding: 0;
+}
+.btn {
+  position: absolute;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 4px;
+  background-color: lightpink;
+  border: lightpink;
+  padding: 0;
+  color: white;
+  width: 100px;
+}
+.btn:hover {
+  position: absolute;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 15px;
+  border-radius: 4px;
+  background-color: lightpink;
+  border: lightpink;
+  color: black;
+  width: 100px;
 }

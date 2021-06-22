@@ -71,7 +71,29 @@ export default function ProductDetails({ product }) {
       <div className="method">
         <div>{documentToReactComponents(description)}</div>
       </div>
-
+      <div className="options">
+      <label for="fittings" className="label">Kolor okucia:</label>
+      <select name="fitting" className="options">
+        <option value="color">srebrny</option>
+        <option value="color">złoty</option>
+      </select>
+        <label for="fittings" className="label">Rodzaj paska:</label>
+      <select name="fitting" className="options">
+        <option value="color">pleciony</option>
+        <option value="color">łańcuszek</option>
+      </select>
+      <label for="fittings" className="label">Długość paska:</label>
+      <select name="fitting" className="options">
+        <option value="color">100 cm</option>
+        <option value="color">120 cm</option>
+      </select>
+      <label for="fittings" className="label">Kolor przędzy/sznurka:</label>
+        <textarea text="text" rows="1" cols="15" className="field"></textarea>
+      </div>
+      {/* <button
+      type="submit"
+      class="btn"
+      >Wybierz</button> */}
       <style jsx>{`
         h2,h3 {
           text-transform: uppercase;
