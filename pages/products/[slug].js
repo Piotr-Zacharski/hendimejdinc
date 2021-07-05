@@ -71,29 +71,36 @@ export default function ProductDetails({ product }) {
       <div className="method">
         <div className="info">{documentToReactComponents(description)}</div>
       </div>
-      <div className="options">
-      <label for="fittings" className="label">Kolor okucia:</label>
-      <select name="fitting" className="options">
-        <option value="color">srebrny</option>
-        <option value="color">złoty</option>
-      </select>
-        <label for="fittings" className="label">Rodzaj paska:</label>
-      <select name="fitting" className="options">
-        <option value="color">pleciony</option>
-        <option value="color">łańcuszek</option>
-      </select>
-      <label for="fittings" className="label">Długość paska:</label>
-      <select name="fitting" className="options">
-        <option value="color">100 cm</option>
-        <option value="color">120 cm</option>
-      </select>
-      <label for="fittings" className="label">Kolor przędzy/sznurka:</label>
-        <textarea text="text" rows="1" cols="15" className="field"></textarea>
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label">Kolor okucia:</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option value="color">wybierz</option>
+            <option value="color">srebrny</option>
+            <option value="color">złoty</option>
+          </select>
       </div>
-      {/* <button
-      type="submit"
-      class="btn"
-      >Wybierz</button> */}
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label">Rodzaj paska:</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option value="color">wybierz</option>
+            <option value="color">pleciony</option>
+            <option value="color">łańcuszek</option>
+          </select>
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault04" class="form-label">Długość paska:</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option value="color">wybierz</option>
+            <option value="color">100 cm</option>
+            <option value="color">120 cm</option>
+          </select>
+      </div>
+      <div>
+      <label for="fittings" className="label">Kolor przędzy/sznurka:</label>
+      <div class="form-floating">
+      <textarea class="form-control" placeholder="Wpisz wybrany kolor" id="floatingTextarea"></textarea>
+      </div>
+  </div>
       <style jsx>{`
         h2,h3 {
           text-transform: uppercase;

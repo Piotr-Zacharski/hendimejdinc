@@ -20,6 +20,10 @@ export default function Layout({ children }) {
             <div className="page-content">{ children }</div>
 
             <footer>Copyright 2021 HendiMejdi</footer>
+
+            <style jsx>{`
+            font-family: 'Lato';
+            `}</style>
         </div>
     )
 }
