@@ -74,7 +74,7 @@ export default function Nav() {
         <NavStyles>
             <Link href="/">Strona Główna</Link>
             <Link href="/bags">Torebki</Link>
-            <Link href="/patterns">Plecaki</Link>
+            <Link href="/backpacks">Plecaki</Link>
             <Link href="/accessories">Podkładki</Link>
             <Link href="/contact">Kontakt</Link>
         </NavStyles>
