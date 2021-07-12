@@ -101,7 +101,6 @@ export default function SimpleSelect() {
       onChange={handleChangeText}
       variant="outlined"
       />
-      <FormHelperText>Pole wymagane</FormHelperText>
     </form>
     <SubmitButton />
     </div>
