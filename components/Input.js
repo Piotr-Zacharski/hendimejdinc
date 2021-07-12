@@ -55,8 +55,6 @@ export default function SimpleSelect() {
           onChange={handleChangeColor}
           className={classes.selectEmpty}
         >
-            <MenuItem value="">
-          </MenuItem>
           <MenuItem value="gold">złoty</MenuItem>
           <MenuItem value="silver">srebrny</MenuItem>
         </Select>
@@ -71,8 +69,6 @@ export default function SimpleSelect() {
           onChange={handleChangeType}
           className={classes.selectEmpty}
         >
-          <MenuItem value="">
-          </MenuItem>
           <MenuItem value="material">pleciony</MenuItem>
           <MenuItem value="chain">łańcuszek</MenuItem>
         </Select>
@@ -87,8 +83,6 @@ export default function SimpleSelect() {
           onChange={handleChangeLength}
           className={classes.selectEmpty}
         >
-          <MenuItem value="">
-          </MenuItem>
           <MenuItem value={100}>100 cm</MenuItem>
           <MenuItem value={120}>120 cm</MenuItem>
         </Select>
