@@ -2,6 +2,8 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import Input from '../../components/Input';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Paper } from '@material-ui/core';
+
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -70,7 +72,7 @@ export default function ProductDetails({ product }) {
       </div>
         
       <div className="method">
-        <div className="info">{documentToReactComponents(description)}</div>
+        <Paper elevation={3}>{documentToReactComponents(description)}</Paper>
       </div>
       <Input />
       <style jsx>{`
