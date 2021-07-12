@@ -85,6 +85,9 @@ footer {
   text-align: center;
   width: 312px;
 }
+.desc:hover{
+  color: hsl(351, 100%, 86%);
+}
 .card-main {
   width: 312px;
   align-items: center;
