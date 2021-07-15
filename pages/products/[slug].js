@@ -55,8 +55,9 @@ export default function ProductDetails({ product }) {
 
   return (
     <div>
+      <Paper elevation={3}>
       <div className="banner">
-        <Image 
+      <Image 
           src={'https:' + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
@@ -72,15 +73,29 @@ export default function ProductDetails({ product }) {
       </div>
         
       <div className="method">
-        <Paper elevation={3}>{documentToReactComponents(description)}</Paper>
-      </div>
+        {documentToReactComponents(description)}
+      </div></Paper>
       <Input />
       <style jsx>{`
         h2,h3 {
           text-transform: uppercase;
         }
         .banner {
+            text-align: center;
+            width: 50%;
+            display: block;
+            height: 100%;
+         
+        }
+        .method {
           text-align: center;
+          position: relative;
+          margin-top: -718px;
+          margin-left: 600px;
+          width: 45%;
+          font-size: 18px;
+          margin-top: -680px;
+          padding: 10px;
         }
         .price {
           margin: 0;
@@ -98,13 +113,14 @@ export default function ProductDetails({ product }) {
           display: block;
           padding: 20px;
           position: relative;
-          top: -20px;
-          width: 700px;
+          top: 20px;
+          width: 500px;
           /* transform: rotateZ(-1deg); */
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
         .info p {
           margin: 0;
+          padding: 0;
         }
         .info span::after {
           content: ", ";
