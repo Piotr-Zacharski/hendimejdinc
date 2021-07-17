@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard({ product }) {
+export default function CardTwo({ product }) {
     const { title, slug, price, thumbnail} = product.fields
   const classes = useStyles();
 
@@ -38,7 +38,7 @@ export default function MediaCard({ product }) {
           { title }
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Cena: { price }zł
+          Cena: { price } zł
           </Typography>
         </CardContent>
       </CardActionArea>

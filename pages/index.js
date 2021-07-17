@@ -29,11 +29,12 @@ export default function Products({ products }) {
      <style jsx>{`
      .product-list {
        display: grid;
-       grid-template-columns: 1fr 1fr;
-       grid-gap: 20px 60px;
+       grid-template-columns: 1fr 1fr 1fr;
+       grid-gap: 50px 80px;
        text-align: center;
        justify-content: center;
        margin: 0 auto;
+       margin-top: 20px;
      }
      `}</style>
     </div>

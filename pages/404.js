@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Image from '../components/Image'
+
 
 const NotFound = () => {
   const router = useRouter()
@@ -14,8 +13,8 @@ const NotFound = () => {
 
   return (
     <div className="not-found">
-      <Image /><h1>404</h1>
-      <h2>Oops! Podana strona nie istnieje 😭</h2>
+      <h1>404</h1>
+      <h2>Oops! Podana strona nie istnieje 🤷</h2>
       <style jsx>{`
         .not-found {
           background: #fff;
