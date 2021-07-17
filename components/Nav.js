@@ -62,7 +62,7 @@ const NavStyles = styled.ul`
     }
   }
   @media (max-width: 1300px) {
-    border-top: 1px solid lightgray;
+    // border-top: 1px solid lightgray;
     width: 100%;
     justify-content: center;
     font-size: 1.5rem;
@@ -72,7 +72,7 @@ const NavStyles = styled.ul`
 export default function Nav() {
     return(
         <NavStyles>
-            <Link href="/">Strona Główna</Link>
+            <Link exact href="/">Strona Główna</Link>
             <Link href="/bags">Torebki</Link>
             <Link href="/backpacks">Plecaki</Link>
             <Link href="/accessories">Podkładki</Link>

@@ -27,12 +27,12 @@ export default function CardTwo({ product }) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-      <Image
+      <Link href={'/products/' + slug}><Image
                 src={'https:' + thumbnail.fields.file.url}
                 width={thumbnail.fields.file.details.image.width}
                 height={thumbnail.fields.file.details.image.height}
                 className="img"
-            />
+            /></Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
           { title }
