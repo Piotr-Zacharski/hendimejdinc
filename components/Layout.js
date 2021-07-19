@@ -19,15 +19,11 @@ export default function Layout({ children }) {
                             </Link>
                         </header>
                         <Nav />
-                        <Container>
-                                <Row>
-                                    
-                                        <div className="page-content"><Col xs={12} md={12}>{ children } </Col></div>
-                                </Row>
+                        <Container maxWidth="lg">
+                        <div className="page-content">{ children }</div>
                         </Container>
-
-            <footer>Copyright 2021 HendiMejdi <br></br>
-            <span className="social-fb"><Link href="/"><FacebookIcon /></Link> </span><span className="social-inst"><Link href="/"><InstagramIcon /></Link></span> <span className="social-tweet"><Link href="/"><TwitterIcon /></Link></span></footer>
+                            <footer>Copyright 2021 HendiMejdi <br></br>
+                            <span className="social-fb"><Link href="/"><FacebookIcon /></Link> </span><span className="social-inst"><Link href="/"><InstagramIcon /></Link></span> <span className="social-tweet"><Link href="/"><TwitterIcon /></Link></span></footer>
 
             <style jsx>{`
             font-family: 'Lato';
