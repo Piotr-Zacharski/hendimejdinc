@@ -51,10 +51,11 @@ header .intro {
 footer {
   background: #111;
   color: #bbb;
-  padding: 40px;
+  padding: 20px;
   text-align: center;
   margin-top: auto;
   font-size: 1.2rem;
+  width: 100%;
 }
 .page-content {
   max-width: 1200px;
