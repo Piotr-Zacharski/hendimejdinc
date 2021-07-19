@@ -55,7 +55,7 @@ export default function ProductDetails({ product }) {
 
   return (
     <div>
-      <Paper elevation={3}>
+      <Paper elevation={5}>
       <div className="banner">
       <Image 
           src={'https:' + featuredImage.fields.file.url}

@@ -19,7 +19,7 @@ export default function SimplePaper() {
 
   return (
     <div className={classes.root}>
-      <Paper elevation={3} />
+      <Paper elevation={5} />
     </div>
   );
 }

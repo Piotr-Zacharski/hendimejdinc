@@ -21,8 +21,8 @@ export default function Layout({ children }) {
                         <Nav />
                         <Container>
                                 <Row>
-                                    <Col xs={6} md={12}></Col>
-                                        <div className="page-content">{ children }</div>
+                                    
+                                        <div className="page-content"><Col xs={12} md={12}>{ children } </Col></div>
                                 </Row>
                         </Container>
 

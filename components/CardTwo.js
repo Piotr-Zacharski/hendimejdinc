@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Container, Grid } from '@material-ui/core';
-import { Col, Row } from 'react-bootstrap';
 
 
 const useStyles = makeStyles({
@@ -27,15 +25,14 @@ export default function CardTwo({ product }) {
   const classes = useStyles();
 
   return (
-    
-    <Card className={classes.root}>
+    <Card className={classes.root} raised={true}>
       <CardActionArea>
-      <Link href={'/products/' + slug}><Image
+        <Link href={'/products/' + slug}><Image
                 src={'https:' + thumbnail.fields.file.url}
                 width={thumbnail.fields.file.details.image.width}
                 height={thumbnail.fields.file.details.image.height}
                 className="img"
-            /></Link>
+        /></Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
           { title }
