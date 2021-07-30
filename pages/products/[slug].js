@@ -70,7 +70,8 @@ export default function ProductDetails({ product }) {
       </div>
       <div className="method">
         {documentToReactComponents(description)}
-      </div></Paper>
+      </div>
+      </Paper>
       <Input />
       <style jsx>{`
         h2 {
@@ -121,6 +122,7 @@ export default function ProductDetails({ product }) {
         .paper {
           text-align: center;
           justify-content: center;
+          width: 940px;
         }
       `}</style>
     </div>
