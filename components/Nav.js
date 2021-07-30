@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 const NavStyles = styled.ul`
-  margin: 0 auto;
+margin: 0 auto;
   padding: 0;
   display: flex;
   text-align: center;
@@ -71,10 +71,10 @@ const NavStyles = styled.ul`
 
 export default function Nav() {
     return(
-        <NavStyles>
-            <Link exact href="/">Strona Główna</Link>
-            <Link href="/about">O mnie</Link>
-            <Link href="/contact">Kontakt</Link>
+        <NavStyles >
+            <Link  exact href="/">Strona Główna</Link>
+            <Link  href="/about">O mnie</Link>
+            <Link  href="/contact">Kontakt</Link>
         </NavStyles>
     );
 }
