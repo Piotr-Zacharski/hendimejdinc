@@ -73,7 +73,7 @@ export default function ProductDetails({ product }) {
       </div></Paper>
       <Input />
       <style jsx>{`
-        h2,h3 {
+        h2 {
           text-transform: uppercase;
         }
         .banner {
@@ -105,7 +105,7 @@ export default function ProductDetails({ product }) {
           padding: 20px;
           position: relative;
           top: 20px;
-          width: 500px;
+          width: 400px;
           /* transform: rotateZ(-1deg); */
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
