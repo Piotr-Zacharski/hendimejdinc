@@ -28,7 +28,8 @@ export default function Products({ products }) {
 
      <style jsx>{`
      .product-list {
-       display: flex-grid;
+       display: inline-flex;
+       align-self: center;
        grid-template-columns: 1fr 1fr 1fr;
        grid-gap: 50px 80px;
        text-align: center;
@@ -36,6 +37,7 @@ export default function Products({ products }) {
        margin: 0 auto;
        margin-top: 20px;
        flex-wrap: wrap;
+       max-width: 1200px;
      }
      `}</style>
     </div>
