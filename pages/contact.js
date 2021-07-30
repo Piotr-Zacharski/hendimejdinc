@@ -48,7 +48,7 @@ const Contact = () => {
 
     return (
       <ThemeProvider theme={theme}>
-       <div>
+       <div className="wrapper">
          <StyledText>Napisz do mnie</StyledText>
          <form noValidate autoComplete="off" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
          <input type="hidden" name="_captcha" value="false" />
