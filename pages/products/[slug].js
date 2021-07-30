@@ -55,23 +55,19 @@ export default function ProductDetails({ product }) {
 
   return (
     <div>
-      <Paper elevation={5}>
+      <Paper elevation={5} className="paper">
       <div className="banner">
-      <Image 
+      <Image
           src={'https:' + featuredImage.fields.file.url}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
           className="feature"
-
         />
         <h2>{ title } <p className="price">Cena: { price } zł</p></h2>
-        
       </div>
 
       <div className="info">
-        
       </div>
-        
       <div className="method">
         {documentToReactComponents(description)}
       </div></Paper>
@@ -82,25 +78,20 @@ export default function ProductDetails({ product }) {
         }
         .banner {
             text-align: center;
-            width: 50%;
+            
             display: block;
             height: 100%;
-         
         }
         .method {
-          text-align: center;
-          position: relative;
-          margin-top: -718px;
-          margin-left: 600px;
-          width: 45%;
+          
+          width: 100%;
           font-size: 18px;
-          margin-top: -680px;
           padding: 10px;
         }
         .price {
           margin: 0;
           color: #777;
-          text-align: center;
+          
           font-size: 1rem;
           text-transform: lowercase;
         }
@@ -127,6 +118,10 @@ export default function ProductDetails({ product }) {
         }
         .info span:last-child::after {
           content: ".";
+        }
+        .paper {
+          text-align: center;
+          justify-content: center;
         }
       `}</style>
     </div>

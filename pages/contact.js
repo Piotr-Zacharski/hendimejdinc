@@ -48,8 +48,9 @@ const Contact = () => {
 
     return (
       <ThemeProvider theme={theme}>
-       <div className="wrapper">
+       <div>
          <StyledText>Napisz do mnie</StyledText>
+         <div className="wrapper">
          <form noValidate autoComplete="off" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
          <input type="hidden" name="_captcha" value="false" />
         <TextField
@@ -89,8 +90,8 @@ const Contact = () => {
         >Wyślij</Button>
         </form>
        </div>
+       </div>
        </ThemeProvider>
      );
 }
- 
 export default Contact;
