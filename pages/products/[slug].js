@@ -75,15 +75,15 @@ export default function ProductDetails({ product }) {
       <style jsx>{`
         h2 {
           text-transform: uppercase;
+          flex-wrap: wrap;
         }
         .banner {
             text-align: center;
-            
             display: block;
             height: 100%;
+            maxWidth: 500px;
         }
         .method {
-          
           width: 100%;
           font-size: 18px;
           padding: 10px;
@@ -91,7 +91,6 @@ export default function ProductDetails({ product }) {
         .price {
           margin: 0;
           color: #777;
-          
           font-size: 1rem;
           text-transform: lowercase;
         }
@@ -105,7 +104,7 @@ export default function ProductDetails({ product }) {
           padding: 20px;
           position: relative;
           top: 20px;
-          width: 400px;
+          maxWidth: 500px;
           /* transform: rotateZ(-1deg); */
           box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
         }
