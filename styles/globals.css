@@ -137,3 +137,33 @@ footer {
   display: inline-block;
   position: relative;
 }
+
+/* MEDIA QUERIES */
+
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px 80px;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  @media (max-width: 767px) {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    grid-gap: 25px 40px;
+
+  @media (max-width: 400px) {
+    text-align: center;
+    display: block;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+}

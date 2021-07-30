@@ -3,7 +3,6 @@ import Nav from './Nav'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { Col, Container, Row } from 'react-bootstrap';
 
 
 export default function Layout({ children }) {
