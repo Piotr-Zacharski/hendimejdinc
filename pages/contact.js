@@ -7,6 +7,9 @@ const useStyles = makeStyles({
     marginBottom: 20,
     marginTop: 20,
     display: 'flex',
+    maxWidth: 700,
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   button: {
     backgroundColor: 'pink',
@@ -39,8 +42,17 @@ font-size: 2rem;
 position: relative;
 z-index: 2;
 border-radius: 15px;
-width: 30%;
+width: 40%;
 color: black;
+@media (max-width: 700px) {
+  font-size: 0.8rem;
+  padding: 0 10px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
 `;
 
 const Contact = () => {
@@ -57,7 +69,7 @@ const Contact = () => {
         className={classes.contact}
         label="Imię"
         variant="outlined"
-        fullWidth
+        
         required>
         </TextField>
         <TextField
@@ -65,13 +77,14 @@ const Contact = () => {
         className={classes.contact}
         label="Email"
         variant="outlined"
-        fullWidth
+        
         required>
         </TextField>
         <TextField
+        className={classes.contact}
         label="Treść wiadomości"
         variant="outlined"
-        fullWidth
+    
         multiline
         rows={4}
         required>

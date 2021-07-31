@@ -19,13 +19,16 @@ export default function Layout({ children }) {
                         </header>
                         <Nav />
                         <div className="page-content">{ children }</div>
-                            <footer>Copyright 2021 HendiMejdi <br></br>
+                            <footer className="footer">Copyright 2021 HendiMejdi <br></br>
                                 <span className="social-fb"><Link href="/"><FacebookIcon /></Link> </span>
                                 <span className="social-inst"><Link href="/"><InstagramIcon /></Link></span>
                                 <span className="social-tweet"><Link href="/"><TwitterIcon /></Link></span>
                             </footer>
             <style jsx>{`
             font-family: 'Poppins';
+            .social-tweet {
+                margin-left: 4px;
+            }
             .social-fb:hover, .social-inst:hover, .social-tweet:hover {
                 color: lightpink;
                 cursor: pointer;
