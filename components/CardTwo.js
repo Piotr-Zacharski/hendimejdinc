@@ -38,7 +38,7 @@ export default function CardTwo({ product }) {
                 { title }
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                Cena: { price } zł
+               { price },00 zł
                 </Typography>
               </CardContent>
             </CardActionArea>

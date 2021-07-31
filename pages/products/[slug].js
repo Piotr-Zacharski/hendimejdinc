@@ -63,7 +63,7 @@ export default function ProductDetails({ product }) {
           height={featuredImage.fields.file.details.image.height}
           className="feature"
         />
-        <h2>{ title } <p className="price">Cena: { price } zł</p></h2>
+        <h2>{ title } <p className="price">{ price },00 zł</p></h2>
       </div>
 
       <div className="info">

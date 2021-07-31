@@ -1,4 +1,4 @@
-import { Button, createMuiTheme, ThemeProvider, makeStyles, TextField, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
+import { Button, createMuiTheme, ThemeProvider, makeStyles, TextField } from "@material-ui/core";
 import SendIcon from '@material-ui/icons/Send';
 import styled from "styled-components";
 
@@ -76,12 +76,12 @@ const Contact = () => {
         rows={4}
         required>
         </TextField>
-        <RadioGroup className={classes.radio}>
+        {/* <RadioGroup className={classes.radio}>
           <FormControlLabel value="torebki" control={<Radio />} label="Torebki" />
           <FormControlLabel value="plecaki" control={<Radio />} label="Plecaki" />
           <FormControlLabel value="podkładki" control={<Radio />} label="Podkładki" />
-        </RadioGroup>
-        <br/>
+        </RadioGroup> */}
+        <br/><br/>
         <Button type="submit"
         variant="contained"
         className={classes.button}
