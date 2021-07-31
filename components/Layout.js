@@ -25,7 +25,7 @@ export default function Layout({ children }) {
                                 <span className="social-tweet"><Link href="/"><TwitterIcon /></Link></span>
                             </footer>
             <style jsx>{`
-            font-family: 'Lato';
+            font-family: 'Poppins';
             .social-fb:hover, .social-inst:hover, .social-tweet:hover {
                 color: lightpink;
                 cursor: pointer;

@@ -17,7 +17,7 @@ margin: 0 auto;
     justify-content: center;
     position: relative;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1em;
     background: none;
     border: 0;
@@ -62,18 +62,18 @@ margin: 0 auto;
       }
     }
   }
-  @media (max-width: 1300px) {
-    // border-top: 1px solid lightgray;
-    width: 100%;
-    justify-content: center;
-    font-size: 1.5rem;
-  }
+  // @media (max-width: 1300px) {
+  //   // border-top: 1px solid lightgray;
+  //   width: 100%;
+  //   justify-content: center;
+  //   font-size: 1.5rem;
+  // }
 `;
 
 export default function Nav() {
     return(
         <NavStyles >
-            <Link  exact href="/">Strona Główna</Link>
+            <Link  exact href="/">Home</Link>
             <Link  href="/about">O mnie</Link>
             <Link  href="/contact">Kontakt</Link>
         </NavStyles>
