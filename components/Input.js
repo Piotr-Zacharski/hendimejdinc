@@ -27,12 +27,16 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect() {
   const classes = useStyles();
   const [color, setColor] = React.useState('');
+  const [name, setName] = React.useState('');
   const [type, setType] = React.useState('');
   const [length, setLength] = React.useState('');
   const [text, setText] = React.useState('');
 
   const handleChangeColor = (event) => {
     setColor(event.target.value);
+  };
+  const handleChangeName = (event) => {
+    setName(event.target.value);
   };
   const handleChangeType = (event) => {
     setType(event.target.value);
@@ -46,6 +50,23 @@ export default function SimpleSelect() {
 
   return (
     <div>
+      <FormControl required className={classes.formControl} variant="outlined" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
+        <InputLabel id="demo-simple-select-required-label">Nazwa</InputLabel>
+        <Select
+          labelId="demo-simple-select-required-label"
+          id="demo-simple-select-required"
+          value={name}
+          onChange={handleChangeName}
+          className={classes.selectEmpty}
+        >
+          <MenuItem value="dolores">Dolores</MenuItem>
+          <MenuItem value="halszka">Halszka</MenuItem>
+          <MenuItem value="makkaresh">Makkaresh</MenuItem>
+          <MenuItem value="margerita">Margerita</MenuItem>
+          <MenuItem value="zoja">Zoja</MenuItem>
+        </Select>
+        <FormHelperText>Pole wymagane</FormHelperText>
+      </FormControl>
       <FormControl required className={classes.formControl} variant="outlined">
         <InputLabel id="demo-simple-select-required-label">Kolor okucia</InputLabel>
         <Select
@@ -90,7 +111,7 @@ export default function SimpleSelect() {
       </FormControl>
       <form className={classes.root} noValidate autoComplete="off">
       <TextField id="standard-basic"
-      label="Wpisz nazwę koloru"
+      label="Kolor przędzy/sznurka"
       value={text}
       onChange={handleChangeText}
       variant="outlined"

@@ -1,6 +1,5 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
-import Input from '../../components/Input';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Paper } from '@material-ui/core';
 
@@ -72,7 +71,6 @@ export default function ProductDetails({ product }) {
         {documentToReactComponents(description)}
       </div>
       </Paper>
-      <Input />
       <style jsx>{`
         h2 {
           text-transform: uppercase;

@@ -74,7 +74,7 @@ export default function Nav() {
     return(
         <NavStyles >
             <Link  exact href="/">Home</Link>
-            <Link  href="/about">O mnie</Link>
+            <Link  href="/mybag">Moja torebka/plecak</Link>
             <Link  href="/contact">Kontakt</Link>
         </NavStyles>
     );
