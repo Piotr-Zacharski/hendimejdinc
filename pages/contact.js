@@ -12,9 +12,11 @@ const useStyles = makeStyles({
     marginRight: 'auto',
   },
   button: {
-    backgroundColor: 'pink',
+    backgroundColor: '#3f51b5',
+    color: 'white',
   '&:hover': {
-    backgroundColor: 'pink',
+    backgroundColor: '#3f51b5',
+    color: 'white',
   }
   },
   radio: {
@@ -97,6 +99,7 @@ const Contact = () => {
         <br/><br/>
         <Button type="submit"
         variant="contained"
+        color="primary"
         className={classes.button}
         endIcon={<SendIcon 
         className={classes.icon}/>}
