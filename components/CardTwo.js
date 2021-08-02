@@ -42,11 +42,6 @@ export default function CardTwo({ product }) {
                 </Typography>
               </CardContent>
             </CardActionArea>
-            {/* <CardActions>
-              <Button size="small" color="primary">
-              <Link href={'/products/' + slug}><a className="desc">Do koszyka</a></Link>
-              </Button>
-            </CardActions> */}
           </Card>
   );
 }

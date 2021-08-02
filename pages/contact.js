@@ -71,7 +71,6 @@ const Contact = () => {
         className={classes.contact}
         label="Imię"
         variant="outlined"
-        
         required>
         </TextField>
         <TextField
@@ -79,29 +78,22 @@ const Contact = () => {
         className={classes.contact}
         label="Email"
         variant="outlined"
-        
         required>
         </TextField>
         <TextField
         className={classes.contact}
         label="Treść wiadomości"
         variant="outlined"
-    
         multiline
         rows={4}
         required>
         </TextField>
-        {/* <RadioGroup className={classes.radio}>
-          <FormControlLabel value="torebki" control={<Radio />} label="Torebki" />
-          <FormControlLabel value="plecaki" control={<Radio />} label="Plecaki" />
-          <FormControlLabel value="podkładki" control={<Radio />} label="Podkładki" />
-        </RadioGroup> */}
         <br/><br/>
         <Button type="submit"
         variant="contained"
         color="primary"
         className={classes.button}
-        endIcon={<SendIcon 
+        endIcon={<SendIcon
         className={classes.icon}/>}
         >Wyślij</Button>
         </form>
