@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import Image from 'next/image';
+import StarRating from './StarRating';
 
 
 const useStyles = makeStyles({
@@ -41,6 +42,7 @@ export default function CardTwo({ product }) {
                { price },00 zł
                 </Typography>
               </CardContent>
+              <StarRating />
             </CardActionArea>
           </Card>
   );
