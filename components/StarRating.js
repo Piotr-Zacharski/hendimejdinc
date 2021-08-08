@@ -20,7 +20,6 @@ export default function StarRating({totalStars = 5}) {
     return (
         <div style={styles}>
             <>
-            <p>Oceń</p>
         {createArray(totalStars).map((n, i) => (
         <Star
         key={i}
