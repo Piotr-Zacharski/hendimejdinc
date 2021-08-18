@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import SubmitButton from './SubmitButton';
+import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -23,6 +24,28 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const StyledText = styled.h3`
+justify-content: center;
+display: flex;
+margin: 0 auto;
+align-items: center;
+font-size: 2rem;
+position: relative;
+z-index: 2;
+border-radius: 15px;
+width: 40%;
+color: black;
+@media (max-width: 700px) {
+  font-size: 0.8rem;
+  padding: 0 10px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+`;
 
 export default function SimpleSelect() {
   const classes = useStyles();
@@ -50,8 +73,9 @@ export default function SimpleSelect() {
 
   return (
     <div>
+      <StyledText>Spersonalizuj swój produkt</StyledText>
       <FormControl required className={classes.formControl} variant="outlined" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
-        <InputLabel id="demo-simple-select-required-label">Nazwa</InputLabel>
+        <InputLabel id="demo-simple-select-required-label">Wzór</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
