@@ -12,7 +12,7 @@ margin: 0 auto;
   button {
     padding: 1rem 3rem;
     text-decoration: none;
-    color: black;
+    color: #b76e79;
     text-align: center;
     justify-content: center;
     position: relative;
@@ -30,7 +30,7 @@ margin: 0 auto;
     &:focus {
       outline: none;
       text-decoration: none;
-      color: lightpink;
+      color: #b76e79;
       &:after {
         width: calc(100% - 60px);
       }

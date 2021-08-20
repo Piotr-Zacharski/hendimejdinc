@@ -7,9 +7,9 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: 'pink',
+    color: '#b76e79',
     '&:hover': {
-      backgroundColor: 'pink'
+      color: '#b76e79',
     }
   },
 }));

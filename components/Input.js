@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
     minWidth: 150,
+    border: '#b76e79',
+    '&:focus': {
+      borderColor: '#b76e79',
+    }
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -75,7 +79,7 @@ export default function SimpleSelect() {
     <div>
       <StyledText>Spersonalizuj swój produkt</StyledText>
       <FormControl required className={classes.formControl} variant="outlined" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
-        <InputLabel id="demo-simple-select-required-label">Wzór</InputLabel>
+        <InputLabel id="demo-simple-select-required-label" className={classes.color}>Wzór</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
@@ -105,7 +109,7 @@ export default function SimpleSelect() {
         </Select>
         <FormHelperText>Pole wymagane</FormHelperText>
       </FormControl>
-      <FormControl required className={classes.formControl} variant="outlined">
+      <FormControl required variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-required-label">Rodzaj paska</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"

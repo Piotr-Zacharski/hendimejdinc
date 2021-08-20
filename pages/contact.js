@@ -10,12 +10,13 @@ const useStyles = makeStyles({
     maxWidth: 700,
     marginLeft: 'auto',
     marginRight: 'auto',
+    borderColor: '#b76e79',
   },
   button: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#b76e79',
     color: 'white',
   '&:hover': {
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#b76e79',
     color: 'white',
   }
   },
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ffb6c1'
+      main: '#b76e79'
     },
     secondary: {
       main: '#ffb6c1'
@@ -91,7 +92,6 @@ const Contact = () => {
         <br/><br/>
         <Button type="submit"
         variant="contained"
-        color="primary"
         className={classes.button}
         endIcon={<SendIcon
         className={classes.icon}/>}

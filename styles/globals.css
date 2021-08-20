@@ -48,7 +48,7 @@ header span {
   line-height: 1em;
 }
 header .intro {
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: 400;
   display: flex;
   align-items: center;
@@ -56,9 +56,10 @@ header .intro {
   margin: 0 auto;
   justify-content: center;
   width: 400px;
+  color: #b76e79
 }
 .footer {
-  background: #111;
+  background: #b76e79;
   color: #bbb;
   padding: 20px;
   text-align: center;
@@ -146,6 +147,9 @@ header .intro {
   line-height: 1.5;
   display: inline-block;
   position: relative;
+}
+.title {
+  background-color: #b76e79;
 }
 
 /* MEDIA QUERIES */

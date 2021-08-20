@@ -30,7 +30,7 @@ export default function Layout({ children }) {
                 margin-left: 4px;
             }
             .social-fb:hover, .social-inst:hover, .social-tweet:hover {
-                color: lightpink;
+                color: gold;
                 cursor: pointer;
             }
             `}</style>

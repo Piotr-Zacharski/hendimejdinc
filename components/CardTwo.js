@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  text: {
+    color: '#b76e79',
+  }
 });
 
 export default function CardTwo({ product }) {
@@ -35,7 +38,7 @@ export default function CardTwo({ product }) {
                       className="img"
               /></Link>
               <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" className={classes.text}>
                 { title }
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
