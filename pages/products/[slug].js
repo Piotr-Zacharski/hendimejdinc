@@ -75,6 +75,7 @@ export default function ProductDetails({ product }) {
         h2 {
           text-transform: uppercase;
           flex-wrap: wrap;
+          line-height: 1.6;
         }
         .banner {
             text-align: center;
@@ -89,6 +90,7 @@ export default function ProductDetails({ product }) {
         }
         .price {
           margin: 0;
+          padding: 5;
           color: white;
           font-size: 1rem;
           text-transform: lowercase;

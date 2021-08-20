@@ -66,7 +66,7 @@ const Contact = () => {
        <div>
          <StyledText>Napisz do mnie</StyledText>
          <div className="wrapper">
-         <form noValidate autoComplete="off" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
+         <form>
          <input type="hidden" name="_captcha" value="false" />
         <TextField
         className={classes.contact}

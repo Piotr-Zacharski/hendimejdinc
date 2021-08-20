@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+    border: '#b76e79',
+    '&:focus': {
+      borderColor: '#b76e79',
+    }
   },
   root: {
     '& > *': {
@@ -78,7 +82,7 @@ export default function SimpleSelect() {
   return (
     <div>
       <StyledText>Spersonalizuj swój produkt</StyledText>
-      <FormControl required className={classes.formControl} variant="outlined" action="https://formsubmit.co/holowacz.zacharska@gmail.com" method="POST">
+      <FormControl required className={classes.formControl} variant="outlined">
         <InputLabel id="demo-simple-select-required-label" className={classes.color}>Wzór</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
