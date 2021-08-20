@@ -12,7 +12,7 @@ margin: 0 auto;
   button {
     padding: 1rem 3rem;
     text-decoration: none;
-    color: #b76e79;
+    color: #222f3e;
     text-align: center;
     justify-content: center;
     position: relative;

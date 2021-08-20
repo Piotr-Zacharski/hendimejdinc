@@ -56,7 +56,10 @@ header .intro {
   margin: 0 auto;
   justify-content: center;
   width: 400px;
-  color: #b76e79
+  color: #b76e79;
+}
+header .intro:hover {
+  color: #b76e79;
 }
 .footer {
   background: #b76e79;

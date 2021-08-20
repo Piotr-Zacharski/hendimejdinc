@@ -46,7 +46,7 @@ position: relative;
 z-index: 2;
 border-radius: 15px;
 width: 40%;
-color: black;
+color: #222f3e;
 @media (max-width: 700px) {
   font-size: 0.8rem;
   padding: 0 10px;

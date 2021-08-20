@@ -5,9 +5,16 @@ import SendIcon from '@material-ui/icons/Send';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(2),
-    padding: 4,
-    backgroundColor: '#b76e79'
+    margin: theme.spacing(3),
+    padding: 10,
+    width: 109,
+    height: 36,
+    backgroundColor: '#b76e79',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#b76e79',
+      color: 'white',
+    }
   },
 }));
 
@@ -18,7 +25,7 @@ export default function IconLabelButtons() {
     <div>
       <Button
         variant="contained"
-        color="primary"
+        color="#b76e79"
         className={classes.button}
         endIcon={<SendIcon />}
       >
