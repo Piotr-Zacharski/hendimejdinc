@@ -23,7 +23,8 @@ export default function IconLabelButtons() {
 
   return (
     <div>
-      <Button
+      <Button 
+        type="submit"
         variant="contained"
         color="#b76e79"
         className={classes.button}

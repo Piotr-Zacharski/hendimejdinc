@@ -1,28 +1,32 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import SubmitButton from './SubmitButton';
 import styled from 'styled-components';
 
+
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(2),
     minWidth: 150,
-    border: '#b76e79',
+    color: '#222f3e',
     '&:focus': {
-      borderColor: '#b76e79',
+      color: '#b76e79',
     }
+  },
+  btn: {
+    display: 'inline'
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
-    border: '#b76e79',
+    color: '#222f3e',
     '&:focus': {
-      borderColor: '#b76e79',
+      color: '#b76e79',
     }
   },
   root: {
@@ -33,6 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#b76e79'
+    },
+    secondary: {
+      main: '#ffb6c1'
+    },
+  }
+})
+
 const StyledText = styled.h3`
 justify-content: center;
 display: flex;
@@ -42,7 +57,7 @@ font-size: 2rem;
 position: relative;
 z-index: 2;
 border-radius: 15px;
-width: 40%;
+width: 50%;
 color: #222f3e;
 @media (max-width: 700px) {
   font-size: 0.8rem;
@@ -55,8 +70,9 @@ color: #222f3e;
 }
 `;
 
-export default function SimpleSelect() {
+export default function Input() {
   const classes = useStyles();
+
   const [color, setColor] = React.useState('');
   const [name, setName] = React.useState('');
   const [type, setType] = React.useState('');
@@ -80,10 +96,11 @@ export default function SimpleSelect() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
     <div>
-      <StyledText>Spersonalizuj swój produkt</StyledText>
-      <FormControl required className={classes.formControl} variant="outlined">
-        <InputLabel id="demo-simple-select-required-label" className={classes.color}>Wzór</InputLabel>
+      <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
+        <FormControl required className={classes.formControl} variant="outlined">
+          <InputLabel id="demo-simple-select-required-label" className={classes.color}>Wzór</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
@@ -97,10 +114,9 @@ export default function SimpleSelect() {
           <MenuItem value="margerita">Margerita</MenuItem>
           <MenuItem value="zoja">Zoja</MenuItem>
         </Select>
-        <FormHelperText>Pole wymagane</FormHelperText>
-      </FormControl>
-      <FormControl required className={classes.formControl} variant="outlined">
-        <InputLabel id="demo-simple-select-required-label">Kolor okucia</InputLabel>
+        </FormControl>
+        <FormControl required className={classes.formControl} variant="outlined">
+          <InputLabel id="demo-simple-select-required-label">Kolor okucia</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
@@ -111,10 +127,9 @@ export default function SimpleSelect() {
           <MenuItem value="gold">złoty</MenuItem>
           <MenuItem value="silver">srebrny</MenuItem>
         </Select>
-        <FormHelperText>Pole wymagane</FormHelperText>
-      </FormControl>
-      <FormControl required variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-required-label">Rodzaj paska</InputLabel>
+        </FormControl>
+        <FormControl required variant="outlined" className={classes.formControl}>
+          <InputLabel id="demo-simple-select-required-label">Rodzaj paska</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
@@ -125,10 +140,9 @@ export default function SimpleSelect() {
           <MenuItem value="material">pleciony</MenuItem>
           <MenuItem value="chain">łańcuszek</MenuItem>
         </Select>
-        <FormHelperText>Pole wymagane</FormHelperText>
-      </FormControl>
-      <FormControl required className={classes.formControl} variant="outlined">
-        <InputLabel id="demo-simple-select-required-label">Długość paska</InputLabel>
+        </FormControl>
+        <FormControl required className={classes.formControl} variant="outlined">
+          <InputLabel id="demo-simple-select-required-label">Długość paska</InputLabel>
         <Select
           labelId="demo-simple-select-required-label"
           id="demo-simple-select-required"
@@ -139,17 +153,18 @@ export default function SimpleSelect() {
           <MenuItem value={100}>100 cm</MenuItem>
           <MenuItem value={120}>120 cm</MenuItem>
         </Select>
-        <FormHelperText>Pole wymagane</FormHelperText>
-      </FormControl>
-      <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic"
-      label="Kolor przędzy/sznurka"
-      value={text}
-      onChange={handleChangeText}
-      variant="outlined"
-      />
-    </form>
-    <SubmitButton />
+        </FormControl>
+        <form className={classes.root} autoComplete="off">
+          <TextField id="standard-basic"
+            label="Kolor przędzy/sznurka"
+            value={text}
+            required
+            onChange={handleChangeText}
+            variant="outlined"
+          />
+          <div className={classes.btn}><SubmitButton /></div>
+        </form>
     </div>
+    </ThemeProvider>
   );
 }
