@@ -1,6 +1,10 @@
-import { Button, createMuiTheme, ThemeProvider, makeStyles, TextField } from "@material-ui/core";
+import { Button, createMuiTheme, ThemeProvider, makeStyles, TextField, InputAdornment } from "@material-ui/core";
+import { AccountCircle } from "@material-ui/icons";
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import ChatIcon from '@material-ui/icons/Chat';
 import SendIcon from '@material-ui/icons/Send';
 import styled from "styled-components";
+
 
 const useStyles = makeStyles({
   contact: {
@@ -11,6 +15,9 @@ const useStyles = makeStyles({
     marginLeft: 'auto',
     marginRight: 'auto',
     borderColor: '#b76e79',
+  },
+  container: {
+    marginTop: 40
   },
   button: {
     backgroundColor: '#b76e79',
@@ -40,6 +47,7 @@ const StyledText = styled.h3`
 justify-content: center;
 display: flex;
 margin: 0 auto;
+margin-bottom: 40px;
 align-items: center;
 font-size: 2rem;
 position: relative;
@@ -63,27 +71,48 @@ const Contact = () => {
 
     return (
       <ThemeProvider theme={theme}>
-       <div>
+       <div className={classes.container}>
          <StyledText>Napisz do mnie</StyledText>
          <div className="wrapper">
          <form>
          <input type="hidden" name="_captcha" value="false" />
         <TextField
         className={classes.contact}
-        label="Imię"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          ),
+        }}
         variant="outlined"
+        placeholder="Imię"
         required>
         </TextField>
         <TextField
         type="email" name="email"
         className={classes.contact}
-        label="Email"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AlternateEmailIcon />
+            </InputAdornment>
+          ),
+        }}
         variant="outlined"
-        required>
+        placeholder="Email"
+        required
+        >
         </TextField>
         <TextField
         className={classes.contact}
-        label="Treść wiadomości"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <ChatIcon />
+            </InputAdornment>
+          ),
+        }}
         variant="outlined"
         multiline
         rows={4}

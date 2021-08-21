@@ -2,11 +2,13 @@ import React from 'react';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import SubmitButton from './SubmitButton';
 import styled from 'styled-components';
+import { InputAdornment } from '@material-ui/core';
 
 
 
@@ -21,6 +23,15 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     display: 'inline'
+  },
+  contact: {
+    marginBottom: 20,
+    marginTop: 20,
+    display: 'inline-block',
+    borderColor: '#b76e79',
+  },
+  container: {
+    marginTop: 40
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -52,6 +63,7 @@ const StyledText = styled.h3`
 justify-content: center;
 display: flex;
 margin: 0 auto;
+margin-bottom: 40px;
 align-items: center;
 font-size: 2rem;
 position: relative;
@@ -97,7 +109,7 @@ export default function Input() {
 
   return (
     <ThemeProvider theme={theme}>
-    <div>
+    <div className={classes.container}>
       <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
         <FormControl required className={classes.formControl} variant="outlined">
           <InputLabel id="demo-simple-select-required-label" className={classes.color}>Wzór</InputLabel>
@@ -162,6 +174,20 @@ export default function Input() {
             onChange={handleChangeText}
             variant="outlined"
           />
+          <TextField
+        type="email" name="email"
+        className={classes.contact}
+        placeholder="Email"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AlternateEmailIcon />
+            </InputAdornment>
+          ),
+        }}
+        variant="outlined"
+        required>
+        </TextField>
           <div className={classes.btn}><SubmitButton /></div>
         </form>
     </div>
