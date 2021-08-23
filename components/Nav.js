@@ -44,6 +44,7 @@ export default function Nav() {
             <Link  exact href="/">Home</Link>
             <Link  href="/mybag">Moja torebka/plecak</Link>
             <Link  href="/contact">Kontakt</Link>
+            <Link  href="/slider">Galeria</Link>
         </NavStyles>
     );
 }
