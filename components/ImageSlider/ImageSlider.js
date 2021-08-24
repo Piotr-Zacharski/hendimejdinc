@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SliderData } from './SliderData';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { makeStyles } from '@material-ui/core';
 
 
@@ -44,8 +44,8 @@ const ImageSlider = ({ slides }) => {
           </div>
         );
       })}
-      <ArrowBackIcon onClick={prevSlide} className={classes.arrow}/>
-      <ArrowForwardIcon onClick={nextSlide} className={classes.arrow}/>
+      <NavigateBeforeIcon onClick={prevSlide} className={classes.arrow} style={{ fontSize: 40 }}/>
+      <NavigateNextIcon onClick={nextSlide} className={classes.arrow} style={{ fontSize: 40 }}/>
     </section>
   );
 };

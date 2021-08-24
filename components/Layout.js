@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Nav from './Nav'
+import Image from './Image';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
                             <Link href="/">
                                 <a>
                                     <h1>
-                                        <div className="intro">HendiMejdi</div>
+                                        <div className="intro">HendiMejdi<Image /></div>
                                     </h1>
                                 </a>
                             </Link>
