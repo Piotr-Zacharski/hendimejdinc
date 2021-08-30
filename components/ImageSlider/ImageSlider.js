@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     arrow: {
         margin: 30,
         cursor: 'pointer',
+            '&:hover': {
+                color: '#b76e79',
+            },
     },
 }))
 

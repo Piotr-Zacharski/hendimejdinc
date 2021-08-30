@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 20,
         display: 'inline-block',
         borderColor: '#b76e79',
+        '&:hover': {
+            color: '#b76e79',
+        },
     },
     container: {
         marginTop: 40,
