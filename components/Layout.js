@@ -49,6 +49,10 @@ export default function Layout({ children }) {
                     color: gold;
                     cursor: pointer;
                 }
+                .intro {
+                    font-family: 'Montserrat Alternates';
+                    font-weight: 500;
+                }
             `}</style>
         </div>
     )
