@@ -137,6 +137,7 @@ export default function Input() {
                     >
                         <MenuItem value="dolores">Dolores</MenuItem>
                         <MenuItem value="halszka">Halszka</MenuItem>
+                        <MenuItem value="janette">Janette</MenuItem>
                         <MenuItem value="makkaresh">Makkaresh</MenuItem>
                         <MenuItem value="margerita">Margerita</MenuItem>
                         <MenuItem value="zoja">Zoja</MenuItem>
