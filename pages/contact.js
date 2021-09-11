@@ -158,7 +158,8 @@ const Contact = () => {
             }
             variant = "outlined"
             placeholder = "Imię"
-            required name = "user_name" {
+            required 
+            name = "user_name" {
                 ...register("user_name", {
                     required: true
                 })

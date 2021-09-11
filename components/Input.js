@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     createMuiTheme,
     makeStyles,
@@ -13,7 +13,17 @@ import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
-import Colors from './Colors'
+import {
+    useForm
+} from 'react-hook-form'
+import {
+    init,
+    sendForm
+} from 'emailjs-com'
+
+init('user_TRfLHnbM0zMpWWmnbysej');
+
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -88,6 +98,15 @@ const StyledText = styled.h3`
     }
 `
 
+const initialState = {
+    name: "",
+    email: "",
+    text: "",
+    type: "",
+    length: "",
+    color: ""
+};
+
 export default function Input() {
     const classes = useStyles()
 
@@ -96,6 +115,7 @@ export default function Input() {
     const [type, setType] = React.useState('')
     const [length, setLength] = React.useState('')
     const [text, setText] = React.useState('')
+    const [email, setEmail] = React.useState('')
 
     const handleChangeColor = (event) => {
         setColor(event.target.value)
@@ -112,10 +132,38 @@ export default function Input() {
     const handleChangeText = (event) => {
         setText(event.target.value)
     }
+    const handleChangeEmail = (event) => {
+        setEmail(event.target.value)
+    }
+
+    const {
+        register,
+        handleSubmit
+    } = useForm();
+
+    const clearState = () => {
+        setState({
+            ...initialState
+        });
+    };
+
+    const onSubmit = (data) => {
+        sendForm("default_service", "template_999kzxf", "#form")
+            .then(function (response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                    clearState();
+                },
+                function (error) {
+                    console.log("FAILED...", error);
+                    setTimeout(() => {}, 1000);
+                });
+    };
+
 
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
+                <form id="form" onSubmit={handleSubmit(onSubmit)}>
                 <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
                 <FormControl
                     required
@@ -134,6 +182,7 @@ export default function Input() {
                         value={name}
                         onChange={handleChangeName}
                         className={classes.selectEmpty}
+                        name="name"
                     >
                         <MenuItem value="dolores">Dolores</MenuItem>
                         <MenuItem value="halszka">Halszka</MenuItem>
@@ -157,6 +206,7 @@ export default function Input() {
                         value={color}
                         onChange={handleChangeColor}
                         className={classes.selectEmpty}
+                        name="color"
                     >
                         <MenuItem value="gold">złoty</MenuItem>
                         <MenuItem value="silver">srebrny</MenuItem>
@@ -176,6 +226,7 @@ export default function Input() {
                         value={type}
                         onChange={handleChangeType}
                         className={classes.selectEmpty}
+                        name="type"
                     >
                         <MenuItem value="material">pleciony</MenuItem>
                         <MenuItem value="chain">łańcuszek</MenuItem>
@@ -195,6 +246,7 @@ export default function Input() {
                         value={length}
                         onChange={handleChangeLength}
                         className={classes.selectEmpty}
+                        name="length"
                     >
                         <MenuItem value={100}>100 cm</MenuItem>
                         <MenuItem value={120}>120 cm</MenuItem>
@@ -208,10 +260,11 @@ export default function Input() {
                         required
                         onChange={handleChangeText}
                         variant="outlined"
+                        name="text"
                     />
                     <TextField
                         type="email"
-                        name="email"
+
                         className={classes.contact}
                         placeholder="Email"
                         InputProps={{
@@ -223,10 +276,13 @@ export default function Input() {
                         }}
                         variant="outlined"
                         required
+                        name="email"
+                        onChange={handleChangeEmail}
                     ></TextField>
                     <div className={classes.btn}>
                         <SubmitButton />
                     </div>
+                </form>
                 </form>
             </div>
         </ThemeProvider>
