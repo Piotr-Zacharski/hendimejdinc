@@ -137,35 +137,22 @@ const Contact = () => {
 
 
 
-        return ( <ThemeProvider theme = {theme} >
-            <
-            div className = {
-                classes.container
-            } >
-            <
-            StyledText > Napisz do mnie < /StyledText> <
-                div className = "wrapper" >
-                <
-                form id = "contact-form"
-            onSubmit = {
-                handleSubmit(onSubmit)
-            } >
-            <
-            input type = "hidden"
+        return (
+        <ThemeProvider theme = {theme} >
+            <div className = {classes.container}>
+            <StyledText > Napisz do mnie </ StyledText> <div className = "wrapper">
+                <form id = "contact-form" onSubmit = {handleSubmit(onSubmit)}>
+            <input type = "hidden"
             name = "_captcha"
-            value = "false" / >
-            <
-            TextField className = {
-                classes.contact
-            }
+            value = "false" />
+            <TextField className = {
+                classes.contact}
             InputProps = {
                 {
-                    startAdornment: ( <
-                        InputAdornment position = "start" >
+                startAdornment: ( <InputAdornment position = "start" >
                         <
                         AccountCircle / >
-                        <
-                        /InputAdornment>
+                        </InputAdornment>
                     ),
                 }
             }
@@ -182,7 +169,7 @@ const Contact = () => {
             value = {
                 user_name
             } >
-            < /TextField> <TextField
+            </ TextField> <TextField
             TextField type = "email"
             name = "user_email" {
                 ...register("user_email", {
@@ -194,12 +181,9 @@ const Contact = () => {
             }
             InputProps = {
                 {
-                    startAdornment: ( <
-                        InputAdornment position = "start" >
-                        <
-                        AlternateEmailIcon / >
-                        <
-                        /InputAdornment>
+                    startAdornment: ( <InputAdornment position = "start" >
+                        <AlternateEmailIcon / >
+                        </ InputAdornment>
                     ),
                 }
             }
@@ -217,12 +201,10 @@ const Contact = () => {
             }
             InputProps = {
                 {
-                    startAdornment: ( <
-                        InputAdornment position = "start" >
-                        <
-                        ChatIcon / >
-                        <
-                        /InputAdornment>
+                    startAdornment: (
+                        <InputAdornment position = "start" >
+                        <ChatIcon / >
+                        </ InputAdornment>
                     ),
                 }
             }
@@ -241,7 +223,7 @@ const Contact = () => {
             value = {
                 user_text
             } >
-            < /TextField> <
+            </ TextField> <
             br / >
             <
             br / >
@@ -254,12 +236,11 @@ const Contact = () => {
             endIcon = {
                 < SendIcon className = {
                     classes.icon
-                }
-                />} >
-                Wyślij 
-                </Button> 
-                </form> 
-                </div> 
+                }/>} >
+                Wyślij
+                </ Button>
+                </ form>
+                </ div>
                 </div> </ ThemeProvider>
             )
         }
