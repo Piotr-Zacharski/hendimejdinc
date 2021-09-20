@@ -137,8 +137,6 @@ export default function Input() {
     }
 
     const {
-        register,
-        handleSubmit
     } = useForm();
 
     const clearState = () => {
@@ -147,23 +145,23 @@ export default function Input() {
         });
     };
 
-    const onSubmit = (data) => {
-        sendForm("default_service", "template_999kzxf", "#form")
-            .then(function (response) {
-                    console.log("SUCCESS!", response.status, response.text);
-                    clearState();
-                },
-                function (error) {
-                    console.log("FAILED...", error);
-                    setTimeout(() => {}, 1000);
-                });
-    };
+    function sendEmail(e) {
+        e.preventDefault();
+    
+        emailjs.sendForm('skomponuj', 'template_999kzxf', e.target, 'user_TRfLHnbM0zMpWWmnbysej')
+          .then((result) => {
+              console.log(result.text);
+              clearState();
+          }, (error) => {
+              console.log(error.text);
+          });
+      }
 
 
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
-                <form id="form" onSubmit={handleSubmit(onSubmit)}>
+                <form id="form" onSubmit={sendEmail}>
                 <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
                 <FormControl
                     required
