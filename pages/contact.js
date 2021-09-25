@@ -124,7 +124,7 @@ const Contact = () => {
         };
 
         const onSubmit = (data) => {
-            sendForm("default_service", "template_quokdn5", "#contact-form")
+            sendForm("formularz", "template_quokdn5", "#contact-form")
                 .then(function (response) {
                         console.log("SUCCESS!", response.status, response.text);
                         clearState();

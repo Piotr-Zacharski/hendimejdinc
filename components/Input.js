@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
     createMuiTheme,
     makeStyles,
@@ -13,15 +13,6 @@ import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
-import {
-    useForm
-} from 'react-hook-form'
-import {
-    init,
-    sendForm
-} from 'emailjs-com'
-
-init('user_TRfLHnbM0zMpWWmnbysej');
 
 
 
@@ -108,14 +99,29 @@ const initialState = {
 };
 
 export default function Input() {
-    const classes = useStyles()
+    const classes = useStyles();
 
-    const [color, setColor] = React.useState('')
-    const [name, setName] = React.useState('')
-    const [type, setType] = React.useState('')
-    const [length, setLength] = React.useState('')
-    const [text, setText] = React.useState('')
-    const [email, setEmail] = React.useState('')
+    const form = useRef();
+
+
+    function sendEmail(e) {
+        e.preventDefault();
+    
+        emailjs.sendForm('skomponuj', 'template_999kzxf', form.current, 'user_TRfLHnbM0zMpWWmnbysej')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+          clearState();
+      };
+
+    const [color, setColor] = useState('')
+    const [name, setName] = useState('')
+    const [type, setType] = useState('')
+    const [length, setLength] = useState('')
+    const [text, setText] = useState('')
+    const [user_email, setUserEmail] = useState('')
 
     const handleChangeColor = (event) => {
         setColor(event.target.value)
@@ -133,29 +139,14 @@ export default function Input() {
         setText(event.target.value)
     }
     const handleChangeEmail = (event) => {
-        setEmail(event.target.value)
+        setUserEmail(event.target.value)
     }
-
-    const {
-    } = useForm();
 
     const clearState = () => {
         setState({
             ...initialState
         });
     };
-
-    function sendEmail(e) {
-        e.preventDefault();
-    
-        emailjs.sendForm('skomponuj', 'template_999kzxf', e.target, 'user_TRfLHnbM0zMpWWmnbysej')
-          .then((result) => {
-              console.log(result.text);
-              clearState();
-          }, (error) => {
-              console.log(error.text);
-          });
-      }
 
 
     return (
@@ -274,7 +265,8 @@ export default function Input() {
                         }}
                         variant="outlined"
                         required
-                        name="email"
+                        name="user_email"
+                        value={user_email}
                         onChange={handleChangeEmail}
                     ></TextField>
                     <div className={classes.btn}>
