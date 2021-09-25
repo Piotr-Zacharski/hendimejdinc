@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState, setState, useRef } from 'react'
 import {
     createMuiTheme,
     makeStyles,
@@ -13,6 +13,9 @@ import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
+import{ init } from 'emailjs-com';
+
+init("user_TRfLHnbM0zMpWWmnbysej");
 
 
 
@@ -100,20 +103,23 @@ const initialState = {
 
 export default function Input() {
     const classes = useStyles();
-
     const form = useRef();
 
 
-    function sendEmail(e) {
+    const sendEmail = (e, data) => {
         e.preventDefault();
     
-        emailjs.sendForm('skomponuj', 'template_999kzxf', form.current, 'user_TRfLHnbM0zMpWWmnbysej')
-          .then((result) => {
+        sendForm('service_usl08gc', 'template_cyejmfu', form.current)
+          .then(function(result) {
               console.log(result.text);
-          }, (error) => {
+              setTimeout(() => {}, 6000)
+              clearState();
+          }, 
+          function(error) {
               console.log(error.text);
-          });
-          clearState();
+          }).then(
+          );
+          
       };
 
     const [color, setColor] = useState('')
@@ -138,7 +144,7 @@ export default function Input() {
     const handleChangeText = (event) => {
         setText(event.target.value)
     }
-    const handleChangeEmail = (event) => {
+    const handleChangeUserEmail = (event) => {
         setUserEmail(event.target.value)
     }
 
@@ -152,7 +158,7 @@ export default function Input() {
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
-                <form id="form" onSubmit={sendEmail}>
+                <form ref={form} onSubmit={sendEmail}>
                 <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
                 <FormControl
                     required
@@ -253,7 +259,6 @@ export default function Input() {
                     />
                     <TextField
                         type="email"
-
                         className={classes.contact}
                         placeholder="Email"
                         InputProps={{
@@ -267,7 +272,7 @@ export default function Input() {
                         required
                         name="user_email"
                         value={user_email}
-                        onChange={handleChangeEmail}
+                        onChange={handleChangeUserEmail}
                     ></TextField>
                     <div className={classes.btn}>
                         <SubmitButton />
