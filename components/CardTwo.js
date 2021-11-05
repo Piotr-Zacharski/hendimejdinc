@@ -26,13 +26,13 @@ export default function CardTwo({ product }) {
     const classes = useStyles()
 
     return (
-        <Card className={classes.root} raised={true}>
+        <Card className={classes.root} raised={true} elevation="24">
             <CardActionArea>
                 <Link href={'/products/' + slug}>
                     <Image
                         src={'https:' + thumbnail.fields.file.url}
-                        width={thumbnail.fields.file.details.image.width}
-                        height={thumbnail.fields.file.details.image.height}
+                        width={325}
+                        height={350}
                         className="img"
                     />
                 </Link>
