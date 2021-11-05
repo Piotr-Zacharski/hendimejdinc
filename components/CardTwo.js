@@ -10,8 +10,8 @@ import StarRating from './StarRating'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
-        maxHeight: 485,
+        maxWidth: 250,
+        maxHeight: 355,
     },
     media: {
         height: 140,
@@ -31,8 +31,8 @@ export default function CardTwo({ product }) {
                 <Link href={'/products/' + slug}>
                     <Image
                         src={'https:' + thumbnail.fields.file.url}
-                        width={325}
-                        height={350}
+                        width={360}
+                        height={300}
                         className="img"
                     />
                 </Link>
