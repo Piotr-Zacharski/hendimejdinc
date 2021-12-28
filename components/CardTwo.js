@@ -10,8 +10,8 @@ import StarRating from './StarRating'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 330,
-        maxHeight: 500,
+        maxWidth: 345,
+        maxHeight: 485,
     },
     media: {
         height: 140,
