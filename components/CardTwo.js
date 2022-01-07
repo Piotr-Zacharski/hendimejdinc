@@ -10,9 +10,8 @@ import StarRating from './StarRating'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 350,
         maxHeight: 485,
-        objectFit: 'contained',
     },
     media: {
         objectFit: 'contained',
@@ -27,13 +26,13 @@ export default function CardTwo({ product }) {
     const classes = useStyles()
 
     return (
-        <Card className={classes.root} raised={true} elevation="24">
+        <Card className={classes.root} raised={true} elevation={24}>
             <CardActionArea>
                 <Link href={'/products/' + slug}>
                     <Image
                         src={'https:' + thumbnail.fields.file.url}
                         width={255}
-                        height={250}
+                        height={270}
                         className={classes.media}
                     />
                 </Link>
