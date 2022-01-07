@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         objectFit: 'contained',
     },
     text: {
-        color: '#b76e79',
+        color: '#b76e79'
     },
 })
 
@@ -32,7 +32,7 @@ export default function CardTwo({ product }) {
                     <Image
                         src={'https:' + thumbnail.fields.file.url}
                         width={255}
-                        height={280}
+                        height={275}
                         className={classes.media}
                     />
                 </Link>
