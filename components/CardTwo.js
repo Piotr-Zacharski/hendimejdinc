@@ -32,7 +32,7 @@ export default function CardTwo({ product }) {
                     <Image
                         src={'https:' + thumbnail.fields.file.url}
                         width={255}
-                        height={270}
+                        height={280}
                         className={classes.media}
                     />
                 </Link>
