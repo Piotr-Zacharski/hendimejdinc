@@ -25,6 +25,18 @@ const NavStyles = styled.ul`
             font-size: 10px;
             padding: 0 10px;
         }
+        &:after {
+      height: 2px;
+      background: #b76e79;
+      content: '';
+      width: 0;
+      position: absolute;
+      transform: translateX(-50%);
+      transition: width 0.4s;
+      transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
+      left: 50%;
+      margin-top: 2rem;
+    }
         &:hover,
         &:focus {
             outline: none;
