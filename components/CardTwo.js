@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         maxHeight: 485,
     },
     media: {
-        objectFit: 'contained',
+        objectFit: 'cover',
     },
     text: {
         color: '#b76e79'
