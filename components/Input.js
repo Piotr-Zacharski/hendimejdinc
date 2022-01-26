@@ -276,10 +276,10 @@ export default function Input() {
                         onChange={handleChangeUserEmail}
                     ></TextField>
                 </form>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-md-center mt-5">
                             <Col md={4}>
-                                <h3>Twój wybór:</h3>
-                                <ul className="list-group">
+                                <h3>Podsumowanie:</h3>
+                                <ul className="list-group mt-3">
                                     <li className="list-group-item">
                                         Wzór:
                                         {name === " " ? " N/A" : " " + name.charAt(0).toUpperCase() + name.slice(1)}
@@ -307,7 +307,6 @@ export default function Input() {
                         <SubmitButton />
                     </div>
                 </form>
-                
             </div>
         </ThemeProvider>
     )
