@@ -286,11 +286,11 @@ export default function Input() {
                                     </li>
                                     <li className="list-group-item">
                                         Kolor okucia:
-                                        {color === " " ? " N/A" : " " + color.charAt(0).toUpperCase() + color.slice(1)}
+                                        {color === " " ? " N/A" : " " + color}
                                     </li>
                                     <li className="list-group-item">
                                         Rodzaj paska:
-                                        {type === " " ? " N/A" : " " + type.charAt(0).toUpperCase() + type.slice(1)}
+                                        {type === " " ? " N/A" : " " + type}
                                     </li>
                                     <li className="list-group-item">
                                         Długość paska:
@@ -298,7 +298,7 @@ export default function Input() {
                                     </li>
                                     <li className="list-group-item">
                                         Kolor przędzy:
-                                        {text === " " ? " N/A" : " " + text.charAt(0).toUpperCase() + text.slice(1)}
+                                        {text === " " ? " N/A" : " " + text}
                                     </li>
                                 </ul>
                             </Col>
