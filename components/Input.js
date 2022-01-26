@@ -14,6 +14,7 @@ import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
 import{ init } from 'emailjs-com';
+import { Col, Row } from 'react-bootstrap'
 
 init("user_TRfLHnbM0zMpWWmnbysej");
 
@@ -109,16 +110,16 @@ export default function Input() {
     const sendEmail = (e, data) => {
         e.preventDefault();
     
-        sendForm('service_usl08gc', 'template_cyejmfu', form.current)
-          .then(function(result) {
-              console.log(result.text);
-              setTimeout(() => {}, 6000)
-              clearState();
-          }, 
-          function(error) {
-              console.log(error.text);
-          }).then(
-          );
+        // sendForm('service_usl08gc', 'template_cyejmfu', form.current)
+        //   .then(function(result) {
+        //       console.log(result.text);
+        //       setTimeout(() => {}, 6000)
+        //       clearState();
+        //   }, 
+        //   function(error) {
+        //       console.log(error.text);
+        //   }).then(
+        //   );
           
       };
 
@@ -274,11 +275,39 @@ export default function Input() {
                         value={user_email}
                         onChange={handleChangeUserEmail}
                     ></TextField>
-                    <div className={classes.btn}>
+                </form>
+                <Row className="justify-content-md-center">
+                            <Col md={4}>
+                                <h3>Twój wybór:</h3>
+                                <ul className="list-group">
+                                    <li className="list-group-item">
+                                        Wzór:
+                                        {name === " " ? " N/A" : " " + name.charAt(0).toUpperCase() + name.slice(1)}
+                                    </li>
+                                    <li className="list-group-item">
+                                        Kolor okucia:
+                                        {color === " " ? " N/A" : " " + color.charAt(0).toUpperCase() + color.slice(1)}
+                                    </li>
+                                    <li className="list-group-item">
+                                        Rodzaj paska:
+                                        {type === " " ? " N/A" : " " + type.charAt(0).toUpperCase() + type.slice(1)}
+                                    </li>
+                                    <li className="list-group-item">
+                                        Długość paska:
+                                        {length === " " ? " N/A" : " " + length + " cm"}
+                                    </li>
+                                    <li className="list-group-item">
+                                        Kolor przędzy:
+                                        {text === " " ? " N/A" : " " + text.charAt(0).toUpperCase() + text.slice(1)}
+                                    </li>
+                                </ul>
+                            </Col>
+                        </Row>
+                        <div className={classes.btn}>
                         <SubmitButton />
                     </div>
                 </form>
-                </form>
+                
             </div>
         </ThemeProvider>
     )
