@@ -204,8 +204,8 @@ export default function Input() {
                         className={classes.selectEmpty}
                         name="color"
                     >
-                        <MenuItem value="gold">złoty</MenuItem>
-                        <MenuItem value="silver">srebrny</MenuItem>
+                        <MenuItem value="złoty">złoty</MenuItem>
+                        <MenuItem value="srebrny">srebrny</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl
@@ -224,8 +224,8 @@ export default function Input() {
                         className={classes.selectEmpty}
                         name="type"
                     >
-                        <MenuItem value="material">pleciony</MenuItem>
-                        <MenuItem value="chain">łańcuszek</MenuItem>
+                        <MenuItem value="pleciony">pleciony</MenuItem>
+                        <MenuItem value="łańcuszek">łańcuszek</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl
