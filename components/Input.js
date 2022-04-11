@@ -13,11 +13,8 @@ import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
-import{ init } from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { Col, Row } from 'react-bootstrap'
-
-init("user_TRfLHnbM0zMpWWmnbysej");
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,42 +90,43 @@ const StyledText = styled.h3`
     }
 `
 
-const initialState = {
-    name: "",
-    email: "",
-    text: "",
-    type: "",
-    length: "",
-    color: ""
-};
+// const initialState = {
+//     name: "",
+//     email: "",
+//     text: "",
+//     type: "",
+//     length: "",
+//     color: ""
+// };
 
 export default function Input() {
     const classes = useStyles();
     const form = useRef();
 
-
-    const sendEmail = (e, data) => {
-        e.preventDefault();
+    const SERVICE_ID = "service_usl08gc"
+    const TEMPLATE_ID = "template_cyejmfu"
+    const USER_ID = "user_TRfLHnbM0zMpWWmnbysej"
     
-        // sendForm('service_usl08gc', 'template_cyejmfu', form.current)
-        //   .then(function(result) {
-        //       console.log(result.text);
-        //       setTimeout(() => {}, 6000)
-        //       clearState();
-        //   }, 
-        //   function(error) {
-        //       console.log(error.text);
-        //   }).then(
-        //   );
-          
-      };
+    const sendEmail = (e ) => {
+    e.preventDefault();
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
+      function (result) {
+        console.log(result.text);
+        setTimeout(() => {}, 6000);
+        clearState();
+      },
+      function (error) {
+        console.log(error);
+      }
+    );
+  };
 
     const [color, setColor] = useState('')
     const [name, setName] = useState('')
     const [type, setType] = useState('')
     const [length, setLength] = useState('')
-    const [text, setText] = useState('')
-    const [user_email, setUserEmail] = useState('')
+    const [cord, setCord] = useState('')
+    const [userEmail, setUserEmail] = useState('')
 
     const handleChangeColor = (event) => {
         setColor(event.target.value)
@@ -142,17 +140,23 @@ export default function Input() {
     const handleChangeLength = (event) => {
         setLength(event.target.value)
     }
-    const handleChangeText = (event) => {
-        setText(event.target.value)
+    const handleChangeCord = (event) => {
+        setCord(event.target.value)
     }
     const handleChangeUserEmail = (event) => {
         setUserEmail(event.target.value)
     }
 
     const clearState = () => {
-        setState({
-            ...initialState
-        });
+        setColor('')
+        setName('')
+        setType('')
+        setLength('')
+        setCord('')
+        setUserEmail('')
+        // setState({
+        //     ...initialState
+        // });
     };
 
 
@@ -250,13 +254,13 @@ export default function Input() {
                 </FormControl>
                 <form className={classes.root} autoComplete="off">
                     <TextField
-                        id="standard-basic"
+                        // id="standard-basic"
                         label="Kolor przędzy/sznurka"
-                        value={text}
+                        value={cord}
                         required
-                        onChange={handleChangeText}
+                        onChange={handleChangeCord}
                         variant="outlined"
-                        name="text"
+                        name="cord"
                     />
                     <TextField
                         type="email"
@@ -271,8 +275,8 @@ export default function Input() {
                         }}
                         variant="outlined"
                         required
-                        name="user_email"
-                        value={user_email}
+                        name="userEmail"
+                        value={userEmail}
                         onChange={handleChangeUserEmail}
                     ></TextField>
                 </form>
@@ -298,7 +302,7 @@ export default function Input() {
                                     </li>
                                     <li className="list-group-item">
                                         Kolor przędzy:
-                                        {text === " " ? " N/A" : " " + text}
+                                        {cord === " " ? " N/A" : " " + cord}
                                     </li>
                                 </ul>
                             </Col>
@@ -309,5 +313,5 @@ export default function Input() {
                 </form>
             </div>
         </ThemeProvider>
-    )
+    );
 }
