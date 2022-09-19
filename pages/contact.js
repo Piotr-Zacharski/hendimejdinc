@@ -17,6 +17,20 @@ import React, { useState } from 'react'
 
 init('user_TRfLHnbM0zMpWWmnbysej')
 
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#b76e79',
+        },
+        secondary: {
+            main: '#ffb6c1',
+        },
+        neutral: {
+            main: '#b76e79',
+        },
+    },
+})
+
 const useStyles = makeStyles({
     contact: {
         marginBottom: 20,
@@ -25,7 +39,10 @@ const useStyles = makeStyles({
         maxWidth: 700,
         marginLeft: 'auto',
         marginRight: 'auto',
-        borderColor: '#b76e79',
+        borderColor: 'neutral',
+        '&:hover': {
+            borderColor: 'neutral',
+        },
     },
     container: {
         marginTop: 40,
@@ -42,16 +59,7 @@ const useStyles = makeStyles({
         display: 'inline',
     },
 })
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#b76e79',
-        },
-        secondary: {
-            main: '#ffb6c1',
-        },
-    },
-})
+
 const StyledText = styled.h3`
     justify-content: center;
     display: flex;
@@ -168,6 +176,7 @@ const Contact = () => {
                             }}
                             variant="outlined"
                             minRows={4}
+                            multiline={true}
                             required
                             name="user_text"
                             {...register('user_text', {
