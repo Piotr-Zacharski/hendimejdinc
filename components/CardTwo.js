@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from 'next/link'
 import Image from 'next/image'
 import StarRating from './StarRating'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 
 const useStyles = makeStyles({
     root: {
@@ -27,7 +27,7 @@ export default function CardTwo({ product }) {
     const classes = useStyles()
 
     return (
-        <motion.div whileHover={{ scale: 1.1 }}>
+        // <motion.div whileHover={{ scale: 1.1 }}>
             <Card className={classes.root} raised={true} elevation={24}>
                 <CardActionArea>
                     <Link href={'/products/' + slug}>
@@ -58,6 +58,6 @@ export default function CardTwo({ product }) {
                     <StarRating />
                 </CardActionArea>
             </Card>
-        </motion.div>
+        // </motion.div>
     )
 }
