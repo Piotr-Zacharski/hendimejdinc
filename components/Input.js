@@ -254,7 +254,6 @@ export default function Input() {
                 </FormControl>
                 <form className={classes.root} autoComplete="off">
                     <TextField
-                        // id="standard-basic"
                         label="Kolor przędzy/sznurka"
                         value={cord}
                         required

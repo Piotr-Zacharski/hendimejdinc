@@ -18,6 +18,7 @@
     "contentful": "^8.4.0",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
+    "framer-motion": "^7.3.5",
     "next": "^11.1.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
@@ -27,6 +28,7 @@
     "react-icons": "^4.2.0",
     "react-responsive": "^9.0.0-beta.3",
     "react-simple-image-slider": "^2.1.2",
+    "spinners-react": "^1.0.7",
     "styled-components": "^5.3.0",
     "yup": "^0.32.9"
   },

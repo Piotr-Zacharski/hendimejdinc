@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Link from 'next/link'
 import Image from 'next/image'
 import StarRating from './StarRating'
+import { motion } from 'framer-motion'
 
 const useStyles = makeStyles({
     root: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
         objectFit: 'cover',
     },
     text: {
-        color: '#b76e79'
+        color: '#b76e79',
     },
 })
 
@@ -26,35 +27,37 @@ export default function CardTwo({ product }) {
     const classes = useStyles()
 
     return (
-        <Card className={classes.root} raised={true} elevation={24}>
-            <CardActionArea>
-                <Link href={'/products/' + slug}>
-                    <Image
-                        src={'https:' + thumbnail.fields.file.url}
-                        width={255}
-                        height={275}
-                        className={classes.media}
-                    />
-                </Link>
-                <CardContent>
-                    <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="h2"
-                        className={classes.text}
-                    >
-                        {title}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        color="textSecondary"
-                        component="p"
-                    >
-                        {price},00 zł
-                    </Typography>
-                </CardContent>
-                <StarRating />
-            </CardActionArea>
-        </Card>
+        <motion.div whileHover={{ scale: 1.1 }}>
+            <Card className={classes.root} raised={true} elevation={24}>
+                <CardActionArea>
+                    <Link href={'/products/' + slug}>
+                        <Image
+                            src={'https:' + thumbnail.fields.file.url}
+                            width={255}
+                            height={275}
+                            className={classes.media}
+                        />
+                    </Link>
+                    <CardContent>
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="h2"
+                            className={classes.text}
+                        >
+                            {title}
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            {price},00 zł
+                        </Typography>
+                    </CardContent>
+                    <StarRating />
+                </CardActionArea>
+            </Card>
+        </motion.div>
     )
 }

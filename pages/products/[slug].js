@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Paper } from '@material-ui/core'
+import { motion } from 'framer-motion'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -52,15 +53,25 @@ export default function ProductDetails({ product }) {
     const { featuredImage, title, price, description } = product.fields
 
     return (
-        <div>
-            <Paper elevation={5} className="paper">
+        <div className="container">
+            <Paper
+                elevation={5}
+                style={{ maxWidth: 1400, margin: '0 auto' }}
+                className="paper"
+            >
                 <div className="banner">
-                    <Image
-                        src={'https:' + featuredImage.fields.file.url}
-                        width={featuredImage.fields.file.details.image.width}
-                        height={featuredImage.fields.file.details.image.height}
-                        className="feature"
-                    />
+                    <motion.div whileHover={{ scale: 1.2 }}>
+                        <Image
+                            src={'https:' + featuredImage.fields.file.url}
+                            width={
+                                featuredImage.fields.file.details.image.width
+                            }
+                            height={
+                                featuredImage.fields.file.details.image.height
+                            }
+                            className="feature"
+                        />
+                    </motion.div>
                     <h2 className="title">
                         {title} <p className="price">{price},00 zł</p>
                     </h2>
@@ -82,6 +93,12 @@ export default function ProductDetails({ product }) {
                     display: block;
                     height: 100%;
                     maxwidth: 500px;
+                }
+                .container {
+                    margin: 0 auto;
+                    align-items: center;
+                    text-align: center;
+                    justify-content: center;
                 }
                 .method {
                     width: 100%;
@@ -106,7 +123,6 @@ export default function ProductDetails({ product }) {
                     position: relative;
                     top: 20px;
                     maxwidth: 500px;
-                    /* transform: rotateZ(-1deg); */
                     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
                 }
                 .info p {
@@ -123,6 +139,7 @@ export default function ProductDetails({ product }) {
                     text-align: center;
                     justify-content: center;
                     width: 940px;
+                    align-items: center;
                 }
             `}</style>
         </div>
