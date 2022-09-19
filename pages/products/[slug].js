@@ -2,7 +2,6 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Paper } from '@material-ui/core'
-// import { motion } from 'framer-motion'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -60,14 +59,12 @@ export default function ProductDetails({ product }) {
                 className="paper"
             >
                 <div className="banner">
-                    {/* <motion.div whileHover={{ scale: 1.2 }}> */}
                     <Image
                         src={'https:' + featuredImage.fields.file.url}
                         width={featuredImage.fields.file.details.image.width}
                         height={featuredImage.fields.file.details.image.height}
                         className="feature"
                     />
-                    {/* </motion.div> */}
                     <h2 className="title">
                         {title} <p className="price">{price},00 zł</p>
                     </h2>

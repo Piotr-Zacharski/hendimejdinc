@@ -1,9 +1,9 @@
 import React, {  useState, setState, useRef } from 'react'
 import {
-    createMuiTheme,
     makeStyles,
     ThemeProvider,
 } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: {
             main: '#b76e79',
@@ -66,7 +66,6 @@ const theme = createMuiTheme({
         },
     },
 })
-
 const StyledText = styled.h3`
     justify-content: center;
     display: flex;
@@ -89,16 +88,6 @@ const StyledText = styled.h3`
         align-items: center;
     }
 `
-
-// const initialState = {
-//     name: "",
-//     email: "",
-//     text: "",
-//     type: "",
-//     length: "",
-//     color: ""
-// };
-
 export default function Input() {
     const classes = useStyles();
     const form = useRef();
@@ -106,7 +95,7 @@ export default function Input() {
     const SERVICE_ID = "service_usl08gc"
     const TEMPLATE_ID = "template_cyejmfu"
     const USER_ID = "user_TRfLHnbM0zMpWWmnbysej"
-    
+
     const sendEmail = (e ) => {
     e.preventDefault();
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
@@ -120,7 +109,6 @@ export default function Input() {
       }
     );
   };
-
     const [color, setColor] = useState('')
     const [name, setName] = useState('')
     const [type, setType] = useState('')
@@ -146,7 +134,6 @@ export default function Input() {
     const handleChangeUserEmail = (event) => {
         setUserEmail(event.target.value)
     }
-
     const clearState = () => {
         setColor('')
         setName('')
@@ -154,12 +141,7 @@ export default function Input() {
         setLength('')
         setCord('')
         setUserEmail('')
-        // setState({
-        //     ...initialState
-        // });
     };
-
-
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>

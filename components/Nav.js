@@ -48,7 +48,6 @@ const NavStyles = styled.ul`
         }
     }
 `
-
 export default function Nav() {
     return (
         <NavStyles>

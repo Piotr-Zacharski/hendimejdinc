@@ -1,31 +1,21 @@
 import {
     Button,
-    createMuiTheme,
     ThemeProvider,
     makeStyles,
     TextField,
     InputAdornment,
 } from '@material-ui/core'
-import {
-    AccountCircle
-} from '@material-ui/icons'
+import { createTheme } from '@material-ui/core/styles'
+import { AccountCircle } from '@material-ui/icons'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import ChatIcon from '@material-ui/icons/Chat'
 import SendIcon from '@material-ui/icons/Send'
 import styled from 'styled-components'
-import {
-    useForm
-} from 'react-hook-form'
-import {
-    init,
-    sendForm
-} from 'emailjs-com'
-import React, {
-    useState
-} from 'react'
+import { useForm } from 'react-hook-form'
+import { init, sendForm } from 'emailjs-com'
+import React, { useState } from 'react'
 
-
-init('user_TRfLHnbM0zMpWWmnbysej');
+init('user_TRfLHnbM0zMpWWmnbysej')
 
 const useStyles = makeStyles({
     contact: {
@@ -52,8 +42,7 @@ const useStyles = makeStyles({
         display: 'inline',
     },
 })
-
-const theme = createMuiTheme({
+const theme = createTheme({
     palette: {
         primary: {
             main: '#b76e79',
@@ -63,8 +52,7 @@ const theme = createMuiTheme({
         },
     },
 })
-
-const StyledText = styled.h3 `
+const StyledText = styled.h3`
     justify-content: center;
     display: flex;
     margin: 0 auto;
@@ -86,163 +74,122 @@ const StyledText = styled.h3 `
         align-items: center;
     }
 `
-
 const initialState = {
-    user_name: "",
-    user_email: "",
-    user_text: ""
-};
-
+    user_name: '',
+    user_email: '',
+    user_text: '',
+}
 const Contact = () => {
-        const classes = useStyles()
-        const {
-            register,
-            handleSubmit
-        } = useForm();
+    const classes = useStyles()
+    const { register, handleSubmit } = useForm()
 
-
-        const [{
-            user_name,
-            user_email,
-            user_text
-        }, setState] = useState(initialState);
-        const clearState = () => {
-            setState({
-                ...initialState
-            });
-        };
-        const onChange = (e) => {
-            e.preventDefault();
-            const {
-                name,
-                value
-            } = e.target;
-            setState((prevState) => ({
-                ...prevState,
-                [name]: value
-            }));
-        };
-
-        const onSubmit = (data) => {
-            sendForm("formularz", "template_quokdn5", "#contact-form")
-                .then(function (response) {
-                        console.log("SUCCESS!", response.status, response.text);
-                        clearState();
-                    },
-                    function (error) {
-                        console.log("FAILED...", error);
-                        setTimeout(() => {}, 1000);
-                    });
-        };
-
-
-
-        return (
-        <ThemeProvider theme = {theme} >
-            <div className = {classes.container}>
-            <StyledText > Napisz do mnie </ StyledText> <div className = "wrapper">
-                <form id = "contact-form" onSubmit = {handleSubmit(onSubmit)}>
-            <input type = "hidden"
-            name = "_captcha"
-            value = "false" />
-            <TextField className = {
-                classes.contact}
-            InputProps = {
-                {
-                startAdornment: ( <InputAdornment position = "start" >
-                        <
-                        AccountCircle / >
-                        </InputAdornment>
-                    ),
-                }
+    const [{ user_name, user_email, user_text }, setState] =
+        useState(initialState)
+    const clearState = () => {
+        setState({
+            ...initialState,
+        })
+    }
+    const onChange = (e) => {
+        e.preventDefault()
+        const { name, value } = e.target
+        setState((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }))
+    }
+    const onSubmit = (data) => {
+        sendForm('formularz', 'template_quokdn5', '#contact-form').then(
+            function (response) {
+                console.log('SUCCESS!', response.status, response.text)
+                clearState()
+            },
+            function (error) {
+                console.log('FAILED...', error)
+                setTimeout(() => {}, 1000)
             }
-            variant = "outlined"
-            placeholder = "Imię"
-            required 
-            name = "user_name" {
-                ...register("user_name", {
-                    required: true
-                })
-            }
-            onChange = {
-                onChange
-            }
-            value = {
-                user_name
-            } >
-            </ TextField> <TextField
-            TextField type = "email"
-            name = "user_email" {
-                ...register("user_email", {
-                    required: true
-                })
-            }
-            className = {
-                classes.contact
-            }
-            InputProps = {
-                {
-                    startAdornment: ( <InputAdornment position = "start" >
-                        <AlternateEmailIcon / >
-                        </ InputAdornment>
-                    ),
-                }
-            }
-            variant = "outlined"
-            placeholder = "Email"
-            required onChange = {
-                onChange
-            }
-            value = {
-                user_email
-            } >
-            </TextField> <
-            TextField className = {
-                classes.contact
-            }
-            InputProps = {
-                {
-                    startAdornment: (
-                        <InputAdornment position = "start" >
-                        <ChatIcon / >
-                        </ InputAdornment>
-                    ),
-                }
-            }
-            variant = "outlined"
-            multiline rows = {
-                4
-            }
-            required name = "user_text" {
-                ...register("user_text", {
-                    required: true
-                })
-            }
-            onChange = {
-                onChange
-            }
-            value = {
-                user_text
-            } >
-            </ TextField> <
-            br / >
-            <
-            br / >
-            <
-            Button type = "submit"
-            variant = "contained"
-            className = {
-                classes.button
-            }
-            endIcon = {
-                < SendIcon className = {
-                    classes.icon
-                }/>} >
-                Wyślij
-                </ Button>
-                </ form>
-                </ div>
-                </div> </ ThemeProvider>
-            )
-        }
-        export default Contact;
+        )
+    }
+    return (
+        <ThemeProvider theme={theme}>
+            <div className={classes.container}>
+                <StyledText> Napisz do mnie </StyledText>{' '}
+                <div className="wrapper">
+                    <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
+                        <input type="hidden" name="_captcha" value="false" />
+                        <TextField
+                            className={classes.contact}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <AccountCircle />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="outlined"
+                            placeholder="Imię"
+                            required
+                            name="user_name"
+                            {...register('user_name', {
+                                required: true,
+                            })}
+                            onChange={onChange}
+                            value={user_name}
+                        ></TextField>{' '}
+                        <TextField
+                            TextField
+                            type="email"
+                            name="user_email"
+                            {...register('user_email', {
+                                required: true,
+                            })}
+                            className={classes.contact}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <AlternateEmailIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="outlined"
+                            placeholder="Email"
+                            required
+                            onChange={onChange}
+                            value={user_email}
+                        ></TextField>{' '}
+                        <TextField
+                            className={classes.contact}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <ChatIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="outlined"
+                            minRows={4}
+                            required
+                            name="user_text"
+                            {...register('user_text', {
+                                required: true,
+                            })}
+                            onChange={onChange}
+                            value={user_text}
+                        ></TextField>{' '}
+                        <br />
+                        <br />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            className={classes.button}
+                            endIcon={<SendIcon className={classes.icon} />}
+                        >
+                            Wyślij
+                        </Button>
+                    </form>
+                </div>
+            </div>{' '}
+        </ThemeProvider>
+    )
+}
+export default Contact
