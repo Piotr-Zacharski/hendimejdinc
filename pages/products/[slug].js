@@ -61,16 +61,12 @@ export default function ProductDetails({ product }) {
             >
                 <div className="banner">
                     {/* <motion.div whileHover={{ scale: 1.2 }}> */}
-                        <Image
-                            src={'https:' + featuredImage.fields.file.url}
-                            width={
-                                featuredImage.fields.file.details.image.width
-                            }
-                            height={
-                                featuredImage.fields.file.details.image.height
-                            }
-                            className="feature"
-                        />
+                    <Image
+                        src={'https:' + featuredImage.fields.file.url}
+                        width={featuredImage.fields.file.details.image.width}
+                        height={featuredImage.fields.file.details.image.height}
+                        className="feature"
+                    />
                     {/* </motion.div> */}
                     <h2 className="title">
                         {title} <p className="price">{price},00 zł</p>
