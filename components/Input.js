@@ -1,4 +1,4 @@
-import React, { useState, setState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import { createTheme } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
@@ -9,9 +9,10 @@ import Select from '@material-ui/core/Select'
 import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
-import { InputAdornment } from '@material-ui/core'
+import {InputAdornment} from '@material-ui/core'
 import emailjs from '@emailjs/browser'
 import { Col, Row } from 'react-bootstrap'
+import {Alert} from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -87,6 +88,9 @@ const StyledText = styled.h3`
 export default function Input() {
     const classes = useStyles()
     const form = useRef()
+    const [alert, setAlert] = useState(null)
+
+    const info = <Alert severity="success" sx={{ width: '100%' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
 
     const SERVICE_ID = 'formularz'
     const TEMPLATE_ID = 'template_cyejmfu'
@@ -97,7 +101,10 @@ export default function Input() {
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
             function (result) {
                 console.log(result.text)
-                setTimeout(() => {}, 6000)
+                setAlert(info)
+                setTimeout(() => {
+                    setAlert(null)
+                }, 6000)
                 clearState()
             },
             function (error) {
@@ -246,7 +253,7 @@ export default function Input() {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <AlternateEmailIcon />
+                                        <AlternateEmailIcon/>
                                     </InputAdornment>
                                 ),
                             }}
@@ -255,38 +262,35 @@ export default function Input() {
                             name="userEmail"
                             value={userEmail}
                             onChange={handleChangeUserEmail}
-                        ></TextField>
+                        />
                     </form>
                     <Row className="justify-content-md-center mt-5">
-                        <Col md={4}>
+                        <Col md={4} className="justify-content-md-start">
                             <h3>Podsumowanie:</h3>
                             <ul className="list-group mt-3">
-                                <li className="list-group-item">
+                                <li className="list-group-item text-start">
                                     Wzór:
-                                    {name === ' '
-                                        ? ' N/A'
-                                        : ' ' +
-                                          name.charAt(0).toUpperCase() +
-                                          name.slice(1)}
+                                    <strong>{name === ' ' ? ' N/A' : ' ' + name.charAt(0).toUpperCase() + name.slice(1)}</strong>
                                 </li>
-                                <li className="list-group-item">
+                                <li className="list-group-item text-start">
                                     Kolor okucia:
-                                    {color === ' ' ? ' N/A' : ' ' + color}
+                                    <strong>{color === ' ' ? ' N/A' : ' ' + color}</strong>
                                 </li>
-                                <li className="list-group-item">
+                                <li className="list-group-item text-start">
                                     Rodzaj paska:
-                                    {type === ' ' ? ' N/A' : ' ' + type}
+                                    <strong>{type === ' ' ? ' N/A' : ' ' + type}</strong>
                                 </li>
-                                <li className="list-group-item">
+                                <li className="list-group-item text-start">
                                     Długość paska:
-                                    {length === ' '
-                                        ? ' N/A'
-                                        : ' ' + length + ' cm'}
+                                    <strong>{length === ' ' ? ' N/A' : ' ' + `${length} cm`}</strong>
                                 </li>
-                                <li className="list-group-item">
+                                <li className="list-group-item text-start">
                                     Kolor przędzy:
-                                    {cord === ' ' ? ' N/A' : ' ' + cord}
-                                </li>
+                                    <strong>{cord === ' ' ? ' N/A' : ' ' + cord}</strong>
+                                </li><li className="list-group-item text-start">
+                                Email:
+                                <strong>{userEmail === ' ' ? ' N/A' : ' ' + userEmail}</strong>
+                            </li>
                             </ul>
                         </Col>
                     </Row>
@@ -294,6 +298,7 @@ export default function Input() {
                         <SubmitButton />
                     </div>
                 </form>
+                {alert}
             </div>
         </ThemeProvider>
     )
