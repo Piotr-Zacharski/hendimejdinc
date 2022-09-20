@@ -1,8 +1,5 @@
-import React, {  useState, setState, useRef } from 'react'
-import {
-    makeStyles,
-    ThemeProvider,
-} from '@material-ui/core/styles'
+import React, { useState, setState, useRef } from 'react'
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import { createTheme } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -13,9 +10,8 @@ import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import { InputAdornment } from '@material-ui/core'
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser'
 import { Col, Row } from 'react-bootstrap'
-
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -89,26 +85,26 @@ const StyledText = styled.h3`
     }
 `
 export default function Input() {
-    const classes = useStyles();
-    const form = useRef();
+    const classes = useStyles()
+    const form = useRef()
 
-    const SERVICE_ID = "service_usl08gc"
-    const TEMPLATE_ID = "template_cyejmfu"
-    const USER_ID = "user_TRfLHnbM0zMpWWmnbysej"
+    const SERVICE_ID = 'formularz'
+    const TEMPLATE_ID = 'template_cyejmfu'
+    const USER_ID = 'e9aXqh1wWz7R1VjQi'
 
-    const sendEmail = (e ) => {
-    e.preventDefault();
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
-      function (result) {
-        console.log(result.text);
-        setTimeout(() => {}, 6000);
-        clearState();
-      },
-      function (error) {
-        console.log(error);
-      }
-    );
-  };
+    const sendEmail = (e) => {
+        e.preventDefault()
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
+            function (result) {
+                console.log(result.text)
+                setTimeout(() => {}, 6000)
+                clearState()
+            },
+            function (error) {
+                console.log(error)
+            }
+        )
+    }
     const [color, setColor] = useState('')
     const [name, setName] = useState('')
     const [type, setType] = useState('')
@@ -141,158 +137,164 @@ export default function Input() {
         setLength('')
         setCord('')
         setUserEmail('')
-    };
+    }
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
                 <form ref={form} onSubmit={sendEmail}>
-                <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
-                <FormControl
-                    required
-                    className={classes.formControl}
-                    variant="outlined"
-                >
-                    <InputLabel
-                        id="demo-simple-select-required-label"
-                        className={classes.color}
-                    >
-                        Wzór
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={name}
-                        onChange={handleChangeName}
-                        className={classes.selectEmpty}
-                        name="name"
-                    >
-                        <MenuItem value="dolores">Dolores</MenuItem>
-                        <MenuItem value="halszka">Halszka</MenuItem>
-                        <MenuItem value="janette">Janette</MenuItem>
-                        <MenuItem value="makkaresh">Makkaresh</MenuItem>
-                        <MenuItem value="margerita">Margerita</MenuItem>
-                        <MenuItem value="zoja">Zoja</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl
-                    required
-                    className={classes.formControl}
-                    variant="outlined"
-                >
-                    <InputLabel id="demo-simple-select-required-label">
-                        Kolor okucia
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={color}
-                        onChange={handleChangeColor}
-                        className={classes.selectEmpty}
-                        name="color"
-                    >
-                        <MenuItem value="złoty">złoty</MenuItem>
-                        <MenuItem value="srebrny">srebrny</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl
-                    required
-                    variant="outlined"
-                    className={classes.formControl}
-                >
-                    <InputLabel id="demo-simple-select-required-label">
-                        Rodzaj paska
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={type}
-                        onChange={handleChangeType}
-                        className={classes.selectEmpty}
-                        name="type"
-                    >
-                        <MenuItem value="pleciony">pleciony</MenuItem>
-                        <MenuItem value="łańcuszek">łańcuszek</MenuItem>
-                    </Select>
-                </FormControl>
-                <FormControl
-                    required
-                    className={classes.formControl}
-                    variant="outlined"
-                >
-                    <InputLabel id="demo-simple-select-required-label">
-                        Długość paska
-                    </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-required-label"
-                        id="demo-simple-select-required"
-                        value={length}
-                        onChange={handleChangeLength}
-                        className={classes.selectEmpty}
-                        name="length"
-                    >
-                        <MenuItem value={100}>100 cm</MenuItem>
-                        <MenuItem value={120}>120 cm</MenuItem>
-                    </Select>
-                </FormControl>
-                <form className={classes.root} autoComplete="off">
-                    <TextField
-                        label="Kolor przędzy/sznurka"
-                        value={cord}
+                    <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
+                    <FormControl
                         required
-                        onChange={handleChangeCord}
+                        className={classes.formControl}
                         variant="outlined"
-                        name="cord"
-                    />
-                    <TextField
-                        type="email"
-                        className={classes.contact}
-                        placeholder="Email"
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <AlternateEmailIcon />
-                                </InputAdornment>
-                            ),
-                        }}
-                        variant="outlined"
+                    >
+                        <InputLabel
+                            id="demo-simple-select-required-label"
+                            className={classes.color}
+                        >
+                            Wzór
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-required-label"
+                            id="demo-simple-select-required"
+                            value={name}
+                            onChange={handleChangeName}
+                            className={classes.selectEmpty}
+                            name="name"
+                        >
+                            <MenuItem value="dolores">Dolores</MenuItem>
+                            <MenuItem value="halszka">Halszka</MenuItem>
+                            <MenuItem value="janette">Janette</MenuItem>
+                            <MenuItem value="makkaresh">Makkaresh</MenuItem>
+                            <MenuItem value="margerita">Margerita</MenuItem>
+                            <MenuItem value="zoja">Zoja</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <FormControl
                         required
-                        name="userEmail"
-                        value={userEmail}
-                        onChange={handleChangeUserEmail}
-                    ></TextField>
-                </form>
-                <Row className="justify-content-md-center mt-5">
-                            <Col md={4}>
-                                <h3>Podsumowanie:</h3>
-                                <ul className="list-group mt-3">
-                                    <li className="list-group-item">
-                                        Wzór:
-                                        {name === " " ? " N/A" : " " + name.charAt(0).toUpperCase() + name.slice(1)}
-                                    </li>
-                                    <li className="list-group-item">
-                                        Kolor okucia:
-                                        {color === " " ? " N/A" : " " + color}
-                                    </li>
-                                    <li className="list-group-item">
-                                        Rodzaj paska:
-                                        {type === " " ? " N/A" : " " + type}
-                                    </li>
-                                    <li className="list-group-item">
-                                        Długość paska:
-                                        {length === " " ? " N/A" : " " + length + " cm"}
-                                    </li>
-                                    <li className="list-group-item">
-                                        Kolor przędzy:
-                                        {cord === " " ? " N/A" : " " + cord}
-                                    </li>
-                                </ul>
-                            </Col>
-                        </Row>
-                        <div className={classes.btn}>
+                        className={classes.formControl}
+                        variant="outlined"
+                    >
+                        <InputLabel id="demo-simple-select-required-label">
+                            Kolor okucia
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-required-label"
+                            id="demo-simple-select-required"
+                            value={color}
+                            onChange={handleChangeColor}
+                            className={classes.selectEmpty}
+                            name="color"
+                        >
+                            <MenuItem value="złoty">złoty</MenuItem>
+                            <MenuItem value="srebrny">srebrny</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <FormControl
+                        required
+                        variant="outlined"
+                        className={classes.formControl}
+                    >
+                        <InputLabel id="demo-simple-select-required-label">
+                            Rodzaj paska
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-required-label"
+                            id="demo-simple-select-required"
+                            value={type}
+                            onChange={handleChangeType}
+                            className={classes.selectEmpty}
+                            name="type"
+                        >
+                            <MenuItem value="pleciony">pleciony</MenuItem>
+                            <MenuItem value="łańcuszek">łańcuszek</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <FormControl
+                        required
+                        className={classes.formControl}
+                        variant="outlined"
+                    >
+                        <InputLabel id="demo-simple-select-required-label">
+                            Długość paska
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-required-label"
+                            id="demo-simple-select-required"
+                            value={length}
+                            onChange={handleChangeLength}
+                            className={classes.selectEmpty}
+                            name="length"
+                        >
+                            <MenuItem value={100}>100 cm</MenuItem>
+                            <MenuItem value={120}>120 cm</MenuItem>
+                        </Select>
+                    </FormControl>
+                    <form className={classes.root} autoComplete="off">
+                        <TextField
+                            label="Kolor przędzy/sznurka"
+                            value={cord}
+                            required
+                            onChange={handleChangeCord}
+                            variant="outlined"
+                            name="cord"
+                        />
+                        <TextField
+                            type="email"
+                            className={classes.contact}
+                            placeholder="Email"
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <AlternateEmailIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                            variant="outlined"
+                            required
+                            name="userEmail"
+                            value={userEmail}
+                            onChange={handleChangeUserEmail}
+                        ></TextField>
+                    </form>
+                    <Row className="justify-content-md-center mt-5">
+                        <Col md={4}>
+                            <h3>Podsumowanie:</h3>
+                            <ul className="list-group mt-3">
+                                <li className="list-group-item">
+                                    Wzór:
+                                    {name === ' '
+                                        ? ' N/A'
+                                        : ' ' +
+                                          name.charAt(0).toUpperCase() +
+                                          name.slice(1)}
+                                </li>
+                                <li className="list-group-item">
+                                    Kolor okucia:
+                                    {color === ' ' ? ' N/A' : ' ' + color}
+                                </li>
+                                <li className="list-group-item">
+                                    Rodzaj paska:
+                                    {type === ' ' ? ' N/A' : ' ' + type}
+                                </li>
+                                <li className="list-group-item">
+                                    Długość paska:
+                                    {length === ' '
+                                        ? ' N/A'
+                                        : ' ' + length + ' cm'}
+                                </li>
+                                <li className="list-group-item">
+                                    Kolor przędzy:
+                                    {cord === ' ' ? ' N/A' : ' ' + cord}
+                                </li>
+                            </ul>
+                        </Col>
+                    </Row>
+                    <div className={classes.btn}>
                         <SubmitButton />
                     </div>
                 </form>
             </div>
         </ThemeProvider>
-    );
+    )
 }

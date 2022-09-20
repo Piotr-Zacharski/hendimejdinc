@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form'
 import { init, sendForm } from 'emailjs-com'
 import React, { useState } from 'react'
 
-init('user_TRfLHnbM0zMpWWmnbysej')
+init('e9aXqh1wWz7R1VjQi')
 
 const theme = createTheme({
     palette: {
@@ -107,7 +107,7 @@ const Contact = () => {
         }))
     }
     const onSubmit = (data) => {
-        sendForm('formularz', 'template_quokdn5', '#contact-form').then(
+        sendForm('service_usl08gc', 'template_quokdn5', '#contact-form').then(
             function (response) {
                 console.log('SUCCESS!', response.status, response.text)
                 clearState()
