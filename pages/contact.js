@@ -14,6 +14,7 @@ import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { init, sendForm } from 'emailjs-com'
 import React, { useState } from 'react'
+import {Alert} from "@mui/material";
 
 init('e9aXqh1wWz7R1VjQi')
 
@@ -90,6 +91,7 @@ const initialState = {
 const Contact = () => {
     const classes = useStyles()
     const { register, handleSubmit } = useForm()
+    const [alert, setAlert] = useState(null)
 
     const [{ user_name, user_email, user_text }, setState] =
         useState(initialState)
@@ -106,11 +108,16 @@ const Contact = () => {
             [name]: value,
         }))
     }
+    const info = <Alert severity="success" sx={{ width: '100%' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoja wiadomość została wysłana.</Alert>
     const onSubmit = (data) => {
         sendForm('service_usl08gc', 'template_quokdn5', '#contact-form').then(
             function (response) {
                 console.log('SUCCESS!', response.status, response.text)
                 clearState()
+                setAlert(info)
+                setTimeout(() => {
+                    setAlert(null)
+                }, 6000)
             },
             function (error) {
                 console.log('FAILED...', error)
@@ -130,7 +137,7 @@ const Contact = () => {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <AccountCircle />
+                                        <AccountCircle/>
                                     </InputAdornment>
                                 ),
                             }}
@@ -138,12 +145,12 @@ const Contact = () => {
                             placeholder="Imię"
                             required
                             name="user_name"
-                            {...register('user_name', {
-                                required: true,
-                            })}
+                                                    {...register('user_name', {
+                                                        required: true,
+                                                    })}
                             onChange={onChange}
                             value={user_name}
-                        ></TextField>{' '}
+                            />{' '}
                         <TextField
                             TextField
                             type="email"
@@ -155,7 +162,7 @@ const Contact = () => {
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <AlternateEmailIcon />
+                                        <AlternateEmailIcon/>
                                     </InputAdornment>
                                 ),
                             }}
@@ -164,13 +171,13 @@ const Contact = () => {
                             required
                             onChange={onChange}
                             value={user_email}
-                        ></TextField>{' '}
+                        />{' '}
                         <TextField
                             className={classes.contact}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
-                                        <ChatIcon />
+                                        <ChatIcon/>
                                     </InputAdornment>
                                 ),
                             }}
@@ -179,12 +186,12 @@ const Contact = () => {
                             multiline={true}
                             required
                             name="user_text"
-                            {...register('user_text', {
-                                required: true,
-                            })}
+                                                    {...register('user_text', {
+                                                        required: true,
+                                                    })}
                             onChange={onChange}
                             value={user_text}
-                        ></TextField>{' '}
+                        />{' '}
                         <br />
                         <br />
                         <Button
@@ -198,6 +205,9 @@ const Contact = () => {
                     </form>
                 </div>
             </div>{' '}
+            <div style={{marginTop: 100}}>
+                {alert}
+            </div>
         </ThemeProvider>
     )
 }
