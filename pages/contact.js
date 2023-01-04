@@ -108,6 +108,7 @@ const Contact = () => {
             [name]: value,
         }))
     }
+    const hiddenValues = user_name && user_email && user_text;
     const info = <Alert severity="success" sx={{ width: '100%' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoja wiadomość została wysłana.</Alert>
     const onSubmit = (data) => {
         sendForm('service_usl08gc', 'template_quokdn5', '#contact-form').then(
@@ -194,14 +195,25 @@ const Contact = () => {
                         />{' '}
                         <br />
                         <br />
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            className={classes.button}
-                            endIcon={<SendIcon className={classes.icon} />}
-                        >
-                            Wyślij
-                        </Button>
+                        {!hiddenValues ?
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                disabled
+                                className={classes.button}
+                                endIcon={<SendIcon className={classes.icon} />}
+                            >
+                                Wyślij
+                            </Button> :
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                className={classes.button}
+                                endIcon={<SendIcon className={classes.icon} />}
+                            >
+                                Wyślij
+                            </Button>
+                        }
                     </form>
                 </div>
             </div>{' '}
