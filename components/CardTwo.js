@@ -41,6 +41,7 @@ export default function CardTwo({ product }) {
                     />
                 </Link>
                 <CardContent>
+                    <Link href={'/products/' + slug}>
                     <Typography
                         gutterBottom
                         variant="h5"
@@ -49,6 +50,7 @@ export default function CardTwo({ product }) {
                     >
                         {title}
                     </Typography>
+                    </Link>
                     <Typography
                         variant="body2"
                         color="textSecondary"
