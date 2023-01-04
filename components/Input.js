@@ -168,12 +168,12 @@ export default function Input() {
                             className={classes.selectEmpty}
                             name="name"
                         >
-                            <MenuItem value="dolores">Dolores</MenuItem>
-                            <MenuItem value="halszka">Halszka</MenuItem>
-                            <MenuItem value="janette">Janette</MenuItem>
-                            <MenuItem value="makkaresh">Makkaresh</MenuItem>
-                            <MenuItem value="margerita">Margerita</MenuItem>
-                            <MenuItem value="myszka Miki">Myszka Miki</MenuItem>
+                            <MenuItem value="Dolores">Dolores</MenuItem>
+                            <MenuItem value="Halszka">Halszka</MenuItem>
+                            <MenuItem value="Janette">Janette</MenuItem>
+                            <MenuItem value="Makkaresh">Makkaresh</MenuItem>
+                            <MenuItem value="Margerita">Margerita</MenuItem>
+                            <MenuItem value="Myszka">Myszka</MenuItem>
                         </Select>
                     </FormControl>
                     <FormControl

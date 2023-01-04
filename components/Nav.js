@@ -55,7 +55,7 @@ export default function Nav() {
                 Home
             </Link>
             <Link href="/gallery">Kolory</Link>
-            <Link href="/mybag">Moja torebka/plecak</Link>
+            <Link href="/mybag">Twoja torebka/plecak</Link>
             <Link href="/contact">Kontakt</Link>
         </NavStyles>
     )
