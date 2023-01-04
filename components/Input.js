@@ -26,19 +26,16 @@ const useStyles = makeStyles((theme) => ({
     btn: {
         display: 'inline',
     },
-    contact: {
-        marginBottom: 20,
-        marginTop: 20,
-        display: 'inline-block',
-        borderColor: '#b76e79',
-        '&:hover': {
-            color: '#b76e79',
-        },
+    form: {
+        display: 'grid',
+        maxWidth: 600,
+        margin: '0 auto',
     },
     container: {
         marginTop: 40,
     },
     selectEmpty: {
+        display: 'grid',
         marginTop: theme.spacing(2),
         color: '#222f3e',
         '&:focus': {
@@ -73,7 +70,7 @@ const StyledText = styled.h3`
     position: relative;
     z-index: 2;
     border-radius: 15px;
-    width: 50%;
+  
     color: #222f3e;
     @media (max-width: 700px) {
         font-size: 0.8rem;
@@ -145,10 +142,12 @@ export default function Input() {
         setCord('')
         setUserEmail('')
     }
+    const hiddenValues = name && color && type && length && cord && userEmail;
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
                 <form ref={form} onSubmit={sendEmail}>
+                    <div className={classes.form}>
                     <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
                     <FormControl
                         required
@@ -174,7 +173,7 @@ export default function Input() {
                             <MenuItem value="janette">Janette</MenuItem>
                             <MenuItem value="makkaresh">Makkaresh</MenuItem>
                             <MenuItem value="margerita">Margerita</MenuItem>
-                            <MenuItem value="zoja">Zoja</MenuItem>
+                            <MenuItem value="myszka Miki">Myszka Miki</MenuItem>
                         </Select>
                     </FormControl>
                     <FormControl
@@ -237,18 +236,27 @@ export default function Input() {
                             <MenuItem value={120}>120 cm</MenuItem>
                         </Select>
                     </FormControl>
-                    <form className={classes.root} autoComplete="off">
+                        <FormControl
+                            required
+                            className={classes.formControl}
+                            variant="outlined">
                         <TextField
                             label="Kolor przędzy/sznurka"
                             value={cord}
+                            className={classes.selectEmpty}
                             required
                             onChange={handleChangeCord}
                             variant="outlined"
                             name="cord"
                         />
+                        </FormControl>
+                        <FormControl
+                            required
+                            className={classes.formControl}
+                            variant="outlined">
                         <TextField
                             type="email"
-                            className={classes.contact}
+                            className={classes.selectEmpty}
                             placeholder="Email"
                             InputProps={{
                                 startAdornment: (
@@ -263,40 +271,46 @@ export default function Input() {
                             value={userEmail}
                             onChange={handleChangeUserEmail}
                         />
-                    </form>
-                    <Row className="justify-content-md-center mt-5">
-                        <Col md={4} className="justify-content-md-start">
-                            <h3>Podsumowanie:</h3>
-                            <ul className="list-group mt-3">
-                                <li className="list-group-item text-start">
-                                    Wzór:
-                                    <strong>{name === ' ' ? ' N/A' : ' ' + name.charAt(0).toUpperCase() + name.slice(1)}</strong>
-                                </li>
-                                <li className="list-group-item text-start">
-                                    Kolor okucia:
-                                    <strong>{color === ' ' ? ' N/A' : ' ' + color}</strong>
-                                </li>
-                                <li className="list-group-item text-start">
-                                    Rodzaj paska:
-                                    <strong>{type === ' ' ? ' N/A' : ' ' + type}</strong>
-                                </li>
-                                <li className="list-group-item text-start">
-                                    Długość paska:
-                                    <strong>{length === ' ' ? ' N/A' : ' ' + `${length} cm`}</strong>
-                                </li>
-                                <li className="list-group-item text-start">
-                                    Kolor przędzy:
-                                    <strong>{cord === ' ' ? ' N/A' : ' ' + cord}</strong>
-                                </li><li className="list-group-item text-start">
-                                Email:
-                                <strong>{userEmail === ' ' ? ' N/A' : ' ' + userEmail}</strong>
-                            </li>
-                            </ul>
-                        </Col>
-                    </Row>
-                    <div className={classes.btn}>
-                        <SubmitButton />
+                        </FormControl>
                     </div>
+                    { hiddenValues &&
+                        <>
+                        <Row className="justify-content-md-center mt-5">
+                            <Col md={4} className="justify-content-md-start">
+                                <h3>Podsumowanie:</h3>
+                                    <ul className="list-group mt-3">
+                                        <li className="list-group-item text-start">
+                                                Wzór:
+                                            <strong>{name === ' ' ? ' N/A' : ' ' + name.charAt(0).toUpperCase() + name.slice(1)}</strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                                Kolor okucia:
+                                            <strong>{color === ' ' ? ' N/A' : ' ' + color}</strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                                Rodzaj paska:
+                                            <strong>{type === ' ' ? ' N/A' : ' ' + type}</strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                                Długość paska:
+                                            <strong>{length === ' ' ? ' N/A' : ' ' + `${length} cm`}</strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                                Kolor przędzy:
+                                            <strong>{cord === ' ' ? ' N/A' : ' ' + cord}</strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                                Email:
+                                            <strong>{userEmail === ' ' ? ' N/A' : ' ' + userEmail}</strong>
+                                        </li>
+                                    </ul>
+                            </Col>
+                        </Row>
+                            <div className={classes.btn}>
+                                    <SubmitButton />
+                            </div>
+                        </>
+                        }
                 </form>
                 {alert}
             </div>

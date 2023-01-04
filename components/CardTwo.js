@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         maxHeight: 485,
         transition: 'all .2s ease-in-out',
         '&:hover': {
-            transform: 'scale(1.1)',
+            transform: 'scale(1.05)',
             border: '1px solid #FFD700',
         },
     },
