@@ -3,13 +3,11 @@ import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import { createTheme } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
-import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import TextField from '@material-ui/core/TextField'
 import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
-import {InputAdornment} from '@material-ui/core'
 import emailjs from '@emailjs/browser'
 import { Col, Row } from 'react-bootstrap'
 import {Alert} from "@mui/material";
@@ -257,14 +255,7 @@ export default function Input() {
                         <TextField
                             type="email"
                             className={classes.selectEmpty}
-                            placeholder="Email"
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <AlternateEmailIcon/>
-                                    </InputAdornment>
-                                ),
-                            }}
+                            label="Email"
                             variant="outlined"
                             required
                             name="userEmail"
