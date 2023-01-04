@@ -129,7 +129,7 @@ const Contact = () => {
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
-                <StyledText> Napisz do mnie </StyledText>{' '}
+                <StyledText> Napisz do mnie :) </StyledText>{' '}
                 <div className="wrapper">
                     <form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
                         <input type="hidden" name="_captcha" value="false" />
