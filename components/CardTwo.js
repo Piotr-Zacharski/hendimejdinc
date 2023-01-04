@@ -13,16 +13,15 @@ const useStyles = makeStyles({
         maxWidth: 350,
         maxHeight: 485,
         transition: 'all .2s ease-in-out',
-        '&:hover': {
-            transform: 'scale(1.05)',
-            border: '1px solid #FFD700',
-        },
     },
     media: {
         objectFit: 'cover',
     },
     text: {
         color: '#b76e79',
+        '&:hover': {
+            textDecoration: 'underline 3px solid #FFD700',
+        },
     },
 })
 
@@ -58,7 +57,7 @@ export default function CardTwo({ product }) {
                         {price},00 zł
                     </Typography>
                 </CardContent>
-                <StarRating />
+                <StarRating/>
             </CardActionArea>
         </Card>
     )
