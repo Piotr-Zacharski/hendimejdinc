@@ -1,7 +1,7 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { Paper } from '@material-ui/core'
+import { Paper, Grid } from '@material-ui/core'
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -56,30 +56,35 @@ export default function ProductDetails({ product }) {
             <Paper
                 elevation={5}
                 style={{ maxWidth: 1400, margin: '0 auto' }}
-                className="paper"
             >
-                <div className="banner">
-                    <Image
-                        src={'https:' + featuredImage.fields.file.url}
-                        width={featuredImage.fields.file.details.image.width}
-                        height={featuredImage.fields.file.details.image.height}
-                        className="feature"
-                    />
-                    <h2 className="title">
-                        {title} <p className="price">{price},00 zł</p>
-                    </h2>
-                </div>
-
-                <div className="info"></div>
-                <div className="method">
-                    {documentToReactComponents(description)}
-                </div>
+                <h2 className="title">
+                    {title} <p className="price">{price},00 zł</p>
+                </h2>
+                <Grid container>
+                    <Grid item xs={5}>
+                        <Image
+                            src={'https:' + featuredImage.fields.file.url}
+                            width={featuredImage.fields.file.details.image.width}
+                            height={featuredImage.fields.file.details.image.height}
+                            className="feature"
+                        />
+                    </Grid>
+                    <Grid item xs={7}>
+                        <div className="method">
+                            {documentToReactComponents(description)}
+                        </div>
+                    </Grid>
+                </Grid>
             </Paper>
             <style jsx>{`
                 h2 {
                     text-transform: uppercase;
                     flex-wrap: wrap;
                     line-height: 1.6;
+                    color: #FFFFFF;
+                }
+                .feature {
+                  padding: 15px;
                 }
                 .banner {
                     text-align: center;
@@ -88,15 +93,15 @@ export default function ProductDetails({ product }) {
                     maxwidth: 500px;
                 }
                 .container {
-                    margin: 0 auto;
+                    margin: 50px auto;
                     align-items: center;
-                    text-align: center;
                     justify-content: center;
                 }
                 .method {
                     width: 100%;
                     font-size: 18px;
-                    padding: 10px;
+                    padding: 15px;
+                    text-align: left;
                 }
                 .price {
                     margin: 0;
@@ -129,10 +134,8 @@ export default function ProductDetails({ product }) {
                     content: '.';
                 }
                 .paper {
-                    text-align: center;
                     justify-content: center;
-                    width: 940px;
-                    align-items: center;
+                    width: 960px;
                 }
             `}</style>
         </div>
