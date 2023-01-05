@@ -8,10 +8,10 @@ import {Zoom} from "@mui/material";
 const useStyles = makeStyles({
     card: {
         width: '100px',
-        height: '100px',
+        height: '120px',
         margin: 5,
         '&:hover': {
-            transform: 'scale(1.1)',
+            transform: 'scale(1.10)',
         }
     },
     container: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 }
 });
 
-const cords = [
+const tyarns = [
     {name: 'Banan', url: '/tyarn/Banan.png'},
     {name: 'Biskupi', url: '/tyarn/Biskupi.png'},
     {name: 'Brudna mięta', url: '/tyarn/Brudna_mieta.png'},
@@ -71,14 +71,14 @@ const Colors = () => {
     return (
         <div className={classes.container}>
         <Grid container xs={12} direction="row" className={classes.grid}>
-            { cords.map((cord) => (
-                <Tooltip TransitionComponent={Zoom} title={cord.name} key={cord.name} arrow>
+            { tyarns.map((tyarn) => (
                     <Card
                     className={classes.card}
+                    key={tyarn.name}
                 >
-                    <Image src={cord.url} alt={cord.name} width={100} height={100} />
+                    <Image src={tyarn.url} alt={tyarn.name} width={100} height={100} />
+                        <p style={{fontSize: 10}}>{tyarn.name}</p>
                 </Card>
-                </Tooltip>
             )
             )
             }
