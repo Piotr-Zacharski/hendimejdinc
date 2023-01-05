@@ -74,7 +74,7 @@ const Colors = () => {
             { tyarns.map((tyarn) => (
                     <Card
                     className={classes.card}
-                    key={tyarn.name}
+                        key={tyarn.name}
                 >
                     <Image src={tyarn.url} alt={tyarn.name} width={100} height={100} />
                         <p style={{fontSize: 10}}>{tyarn.name}</p>
