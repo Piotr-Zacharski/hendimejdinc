@@ -8,7 +8,7 @@ import {Zoom} from "@mui/material";
 const useStyles = makeStyles({
     card: {
         width: '100px',
-        height: '120px',
+        height: '125px',
         margin: 5,
         '&:hover': {
             transform: 'scale(1.10)',
@@ -77,7 +77,7 @@ const Colors = () => {
                         key={tyarn.name}
                 >
                     <Image src={tyarn.url} alt={tyarn.name} width={100} height={100} />
-                        <p style={{fontSize: 10}}>{tyarn.name}</p>
+                        <p style={{fontSize: 11, marginBottom: 5 }}>{tyarn.name}</p>
                 </Card>
             )
             )
