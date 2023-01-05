@@ -1,10 +1,10 @@
 import React from 'react'
-import Image from '../components/Image'
+import Colors from "../components/Colors";
 
 export default function Gallery() {
     return (
       <div>
-            <Image />
+          <Colors />
         </div>
     )
 }
