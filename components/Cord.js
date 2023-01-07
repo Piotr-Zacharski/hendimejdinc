@@ -66,7 +66,7 @@ const tyarns = [
     {name: 'Wanilia', url: '/tyarn/Wanilia.png'},
 ]
 
-const Colors = () => {
+const Cord = () => {
     const classes = useStyles();
     return (
         <div className={classes.container}>
@@ -87,4 +87,4 @@ const Colors = () => {
     )
 }
 
-export default Colors
+export default Cord

@@ -11,6 +11,60 @@ import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import { Col, Row } from 'react-bootstrap'
 import {Alert} from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+const patterns = [
+    {name: 'Dolores' , value: 'Dolores'},
+        {name: 'Halszka' , value: 'Halszka'},
+        {name: 'Janette' , value: 'Janette'},
+        {name: 'Makkaresh' , value: 'Makkaresh'},
+        {name: 'Margerita' , value: 'Margerita'},
+        {name: 'Myszka' , value: 'Myszka'},
+]
+
+const tyarns = [
+    {name: 'Banan', url: '/tyarn/Banan.png'},
+    {name: 'Biskupi', url: '/tyarn/Biskupi.png'},
+    {name: 'Brudna mięta', url: '/tyarn/Brudna_mieta.png'},
+    {name: 'Brudny róż', url: '/tyarn/Brudny_roz.png'},
+    {name: 'Błękit', url: '/tyarn/Blekit.png'},
+    {name: 'Chaber', url: '/tyarn/Chaber.png'},
+    {name: 'Chłodny beż', url: '/tyarn/Chlodny_bez.png'},
+    {name: 'Ciasteczko', url: '/tyarn/Ciasteczko.png'},
+    {name: 'Cukierkowy róż', url: '/tyarn/Cukierkowy.png'},
+    {name: 'Cynamon', url: '/tyarn/Cynamon.png'},
+    {name: 'Cytryna', url: '/tyarn/Cytryna.png'},
+    {name: 'Czarny', url: '/tyarn/Czarny.png'},
+    {name: 'Czekolada', url: '/tyarn/Czekolada.png'},
+    {name: 'Czerwień', url: '/tyarn/Czerwien.png'},
+    {name: 'Fuksja', url: '/tyarn/Fuksja.png'},
+    {name: 'Grafit', url: '/tyarn/Grafit.png'},
+    {name: 'Granat', url: '/tyarn/Granat.png'},
+    {name: 'Jagoda', url: '/tyarn/Jagodowy.png'},
+    {name: 'Jasny fiolet', url: '/tyarn/jasnyfiolet.png'},
+    {name: 'Jasny szary', url: '/tyarn/jasnyszary.png'},
+    {name: 'Jodła', url: '/tyarn/Jodla.png'},
+    {name: 'Kawa', url: '/tyarn/Kawa.png'},
+    {name: 'Khaki', url: '/tyarn/Khaki.png'},
+    {name: 'Koniak', url: '/tyarn/Koniak.png'},
+    {name: 'Krem', url: '/tyarn/Krem.png'},
+    {name: 'Lawenda', url: '/tyarn/Lawenda.png'},
+    {name: 'Limonka', url: '/tyarn/Limonka.png'},
+    {name: 'Malina', url: '/tyarn/Malina.png'},
+    {name: 'Mandarynka', url: '/tyarn/Mandarynka.png'},
+    {name: 'Miód', url: '/tyarn/Miod.png'},
+    {name: 'Morski', url: '/tyarn/Morski.png'},
+    {name: 'Musztarda', url: '/tyarn/Musztarda.png'},
+    {name: 'Pastelowa mięta', url: '/tyarn/pastelowamieta.png'},
+    {name: 'Petrol', url: '/tyarn/Petrol.png'},
+    {name: 'Różowy krem', url: '/tyarn/rozowykrem.png'},
+    {name: 'Suszone morele', url: '/tyarn/morele.png'},
+    {name: 'Szary', url: '/tyarn/Szary.png'},
+    {name: 'Szałwia', url: '/tyarn/szalwia.png'},
+    {name: 'Słodki róż', url: '/tyarn/slodkiroz.png'},
+    {name: 'Wanilia', url: '/tyarn/Wanilia.png'},
+]
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -46,6 +100,9 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    select: {
+            display: 'flex',
+    }
 }))
 
 const theme = createTheme({
@@ -112,6 +169,7 @@ export default function Input() {
     const [type, setType] = useState('')
     const [length, setLength] = useState('')
     const [cord, setCord] = useState('')
+    const [userRemarks, setUserRemarks] = useState('')
     const [userEmail, setUserEmail] = useState('')
 
     const handleChangeColor = (event) => {
@@ -129,6 +187,9 @@ export default function Input() {
     const handleChangeCord = (event) => {
         setCord(event.target.value)
     }
+    const handleChangeUserRemarks = (event) => {
+        setUserRemarks(event.target.value)
+    }
     const handleChangeUserEmail = (event) => {
         setUserEmail(event.target.value)
     }
@@ -138,6 +199,7 @@ export default function Input() {
         setType('')
         setLength('')
         setCord('')
+        setUserRemarks('')
         setUserEmail('')
     }
     const hiddenValues = name && color && type && length && cord && userEmail;
@@ -166,12 +228,9 @@ export default function Input() {
                             className={classes.selectEmpty}
                             name="name"
                         >
-                            <MenuItem value="Dolores">Dolores</MenuItem>
-                            <MenuItem value="Halszka">Halszka</MenuItem>
-                            <MenuItem value="Janette">Janette</MenuItem>
-                            <MenuItem value="Makkaresh">Makkaresh</MenuItem>
-                            <MenuItem value="Margerita">Margerita</MenuItem>
-                            <MenuItem value="Myszka">Myszka</MenuItem>
+                            {patterns.map(pattern => (
+                                <MenuItem value={pattern.value} key={pattern.value}><Box sx={{display: "flex"}}>{pattern.name}</Box></MenuItem>
+                            ))}
                         </Select>
                     </FormControl>
                     <FormControl
@@ -190,8 +249,8 @@ export default function Input() {
                             className={classes.selectEmpty}
                             name="color"
                         >
-                            <MenuItem value="złoty">złoty</MenuItem>
-                            <MenuItem value="srebrny">srebrny</MenuItem>
+                            <MenuItem value="złoty"><Box sx={{display: "flex"}}>złoty</Box></MenuItem>
+                            <MenuItem value="srebrny"><Box sx={{display: "flex"}}>srebrny</Box></MenuItem>
                         </Select>
                     </FormControl>
                     <FormControl
@@ -210,8 +269,8 @@ export default function Input() {
                             className={classes.selectEmpty}
                             name="type"
                         >
-                            <MenuItem value="pleciony">pleciony</MenuItem>
-                            <MenuItem value="łańcuszek">łańcuszek</MenuItem>
+                            <MenuItem value="pleciony"><Box sx={{display: "flex"}}>pleciony</Box></MenuItem>
+                            <MenuItem value="łańcuszek"><Box sx={{display: "flex"}}>łańcuszek</Box></MenuItem>
                         </Select>
                     </FormControl>
                     <FormControl
@@ -230,23 +289,49 @@ export default function Input() {
                             className={classes.selectEmpty}
                             name="length"
                         >
-                            <MenuItem value={100}>100 cm</MenuItem>
-                            <MenuItem value={120}>120 cm</MenuItem>
+                            <MenuItem value={100}><Box sx={{display: "flex"}}>100 cm</Box></MenuItem>
+                            <MenuItem value={120}><Box sx={{display: "flex"}}>120 cm</Box></MenuItem>
                         </Select>
                     </FormControl>
                         <FormControl
                             required
                             className={classes.formControl}
-                            variant="outlined">
-                        <TextField
-                            label="Kolor przędzy/sznurka"
-                            value={cord}
-                            className={classes.selectEmpty}
-                            required
-                            onChange={handleChangeCord}
                             variant="outlined"
-                            name="cord"
-                        />
+                        >
+                            <InputLabel id="demo-simple-select-required-label">
+                                Kolor przędzy/sznurka
+                            </InputLabel>
+                            <Select
+                                labelId="demo-simple-select-required-label"
+                                id="demo-simple-select-required"
+                                value={cord}
+                                onChange={handleChangeCord}
+                                name="cord"
+                            >
+                                {tyarns.map((yarn) => (
+                                    <MenuItem
+                                        value={yarn.name} key={yarn.name}>
+                                        <Box sx={{display: "flex"}}><img src={yarn.url} width={20} height={20} alt={yarn.name}></img>
+                                            <Typography style={{marginLeft: 10}}>{yarn.name}</Typography></Box>
+
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                        <FormControl
+                            required
+                            className={classes.formControl}
+                            variant="outlined">
+                            <TextField
+                                type="remarks"
+                                className={classes.selectEmpty}
+                                label="Uwagi dodatkowe"
+                                variant="outlined"
+                                multiline
+                                name="userRemarks"
+                                value={userRemarks}
+                                onChange={handleChangeUserRemarks}
+                            />
                         </FormControl>
                         <FormControl
                             required
@@ -288,7 +373,11 @@ export default function Input() {
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Kolor przędzy:
-                                            <strong>{cord === ' ' ? ' N/A' : ' ' + cord}</strong>
+                                            <strong>{cord === ' ' ? ' N/A' : ' ' + cord} </strong>
+                                        </li>
+                                        <li className="list-group-item text-start">
+                                            Uwagi:
+                                            <strong>{userRemarks === ' ' ? ' Brak uwag' : ' ' + userRemarks}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Email:
