@@ -1,10 +1,12 @@
 import React from 'react'
-import Colors from "../components/Colors";
+import TShirtYarn from "../components/TShirtYarn";
+import ColorTabs from "../components/ColorTabs";
+
 
 export default function Gallery() {
     return (
       <div>
-          <Colors />
+          <ColorTabs />
         </div>
     )
 }
