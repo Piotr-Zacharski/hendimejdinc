@@ -14,7 +14,7 @@ export default function Layout({ children }) {
                     <a>
                         <h1>
                             <div className="intro">
-                                 HendiMejdi
+                                HendiMejdi
                             </div>
                         </h1>
                     </a>
