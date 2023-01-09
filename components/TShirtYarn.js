@@ -78,7 +78,7 @@ const TShirtYarn = () => {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-        <Grid container xs={6} md={12} direction="row" className={classes.grid}>
+        <Grid container xs={12} direction="row" className={classes.grid}>
             { tyarns.map((tyarn) => (
                     <Card
                     className={classes.card}
