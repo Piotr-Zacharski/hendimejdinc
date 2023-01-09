@@ -1,5 +1,4 @@
 import React from 'react'
-import TShirtYarn from "../components/TShirtYarn";
 import ColorTabs from "../components/ColorTabs";
 
 
