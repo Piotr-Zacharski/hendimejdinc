@@ -97,8 +97,8 @@ export default function ColorTabs() {
                 <StyledTabs value={value} onChange={handleChange}
                       aria-label="basic tabs example" centered indicatorColor="primary"
                 textColor="primary">
-                    <StyledTab label="T-shirt Yarn" {...a11yProps(0)} />
-                    <StyledTab label="Sznurek" {...a11yProps(1)} />
+                    <StyledTab label="T-SHIRT YARN" {...a11yProps(0)} />
+                    <StyledTab label="SZNUREK" {...a11yProps(1)} />
                 </StyledTabs>
             </Box>
             <TabPanel value={value} index={0}>
