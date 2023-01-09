@@ -5,6 +5,56 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TShirtYarn from "./TShirtYarn";
 import Cord from "./Cord";
+import {createTheme, styled, ThemeProvider} from "@material-ui/core/styles";
+
+const StyledTabs = styled((props) => (
+    <Tabs
+        {...props}
+        TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+    />
+))({
+    '& .MuiTabs-indicator': {
+        display: 'flex',
+        justifyContent: 'center',
+        color: '#b76e79',
+        backgroundColor: 'transparent',
+    },
+    '& .MuiTabs-indicatorSpan': {
+        maxWidth: 40,
+        width: '100%',
+        backgroundColor: '#b76e79',
+    },
+});
+const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+    ({ theme }) => ({
+        textTransform: 'none',
+        fontWeight: theme.typography.fontWeightRegular,
+        fontSize: theme.typography.pxToRem(15),
+        marginRight: theme.spacing(1),
+        color: '#ffb6c1',
+        '&.Mui-selected': {
+            color: '#b76e79',
+        },
+        '&.Mui-focusVisible': {
+            backgroundColor: 'rgba(100, 95, 228, 0.32)',
+        },
+    }),
+);
+
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#b76e79',
+        },
+        secondary: {
+            main: '#ffb6c1',
+        },
+        neutral: {
+            main: '#b76e79',
+        },
+    },
+})
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,12 +91,15 @@ export default function ColorTabs() {
     };
 
     return (
+        <ThemeProvider theme={theme}>
         <Box sx={{ width: '100%' }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="T-shirt Yarn" {...a11yProps(0)} />
-                    <Tab label="Sznurek" {...a11yProps(1)} />
-                </Tabs>
+            <Box>
+                <StyledTabs value={value} onChange={handleChange}
+                      aria-label="basic tabs example" centered indicatorColor="primary"
+                textColor="primary">
+                    <StyledTab label="T-shirt Yarn" {...a11yProps(0)} />
+                    <StyledTab label="Sznurek" {...a11yProps(1)} />
+                </StyledTabs>
             </Box>
             <TabPanel value={value} index={0}>
                 <TShirtYarn />
@@ -55,5 +108,6 @@ export default function ColorTabs() {
                 <Cord />
             </TabPanel>
         </Box>
+        </ThemeProvider>
     );
 }
