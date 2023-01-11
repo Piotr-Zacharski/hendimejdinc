@@ -5,8 +5,6 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
 
 export default function Layout({ children }) {
-    const date = new Date();
-    const year = date.getFullYear();
     return (
         <div className="layout">
             <header>
@@ -23,7 +21,7 @@ export default function Layout({ children }) {
             <Nav />
             <div className="page-content">{children}</div>
             <footer className="footer">
-                Copyright {year} HendiMejdi <br></br>
+                Copyright {new Date().getFullYear()} HendiMejdi <br></br>
                 <span className="social-fb">
                     <Link href="/">
                         <FacebookIcon />
