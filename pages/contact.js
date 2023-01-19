@@ -208,6 +208,7 @@ const Contact = () => {
                             <Button
                                 type="submit"
                                 variant="contained"
+                                name="button"
                                 className={classes.button}
                                 endIcon={<SendIcon className={classes.icon} />}
                             >
