@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
-import {Grid, Tooltip} from "@material-ui/core";
-import {Zoom} from "@mui/material";
+import {Grid} from "@material-ui/core";
 
 
 const useStyles = makeStyles({
     card: {
         width: '100px',
         height: '125px',
-        margin: 5,
+        margin: 17,
         '&:hover': {
             transform: 'scale(1.10)',
         }
