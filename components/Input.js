@@ -279,6 +279,11 @@ export default function Input() {
         setUserEmail('')
     }
     const hiddenValues = name && color && type && length && userEmail && (cord || yarn);
+
+    const cordText = "wybrano przędzę";
+    const yarnText = "wybrano sznurek";
+    const remarksText = "Brak uwag";
+
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.container}>
@@ -474,15 +479,15 @@ export default function Input() {
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Kolor sznurka:
-                                            <strong>{cord === ' ' ? ' N/A' : ' ' + cord} </strong>
+                                            <strong>{cord === ' ' ? ' ' + yarnText : ' ' + cord} </strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                             Kolor przędzy:
-                                            <strong>{yarn === ' ' ? ' N/A' : ' ' + yarn} </strong>
+                                            <strong>{yarn === ' ' ? ' ' + cordText : ' ' + yarn} </strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                             Uwagi:
-                                            <strong>{userRemarks === ' ' ? ' Brak uwag' : ' ' + userRemarks}</strong>
+                                            <strong>{userRemarks === ' ' ? ' ' + remarksText : ' ' + userRemarks}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Email:
