@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TShirtYarn from "./TShirtYarn";
 import Cord from "./Cord";
-import {createTheme, styled, ThemeProvider} from "@material-ui/core/styles";
+import {createTheme, makeStyles, styled, ThemeProvider} from "@material-ui/core/styles";
 
 const StyledTabs = styled((props) => (
     <Tabs
@@ -36,10 +36,17 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
             color: '#b76e79',
         },
         '&.Mui-focusVisible': {
-            backgroundColor: 'rgba(100, 95, 228, 0.32)',
+            color: '#b76e79',
         },
     }),
 );
+const useStyles = makeStyles(() => ({
+    tabTitle: {
+        '&.Mui-selected': {
+            color: '#b76e79',
+        },
+    },
+}));
 
 
 const theme = createTheme({
@@ -57,6 +64,7 @@ const theme = createTheme({
 })
 
 function TabPanel(props) {
+    const classes = useStyles();
     const { children, value, index, ...other } = props;
 
     return (
@@ -69,7 +77,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    <Typography className={classes.tabTitle}>{children}</Typography>
                 </Box>
             )}
         </div>
