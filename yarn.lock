@@ -3020,6 +3020,11 @@ queue@6.0.2:
   dependencies:
     inherits "~2.0.3"
 
+ramda@^0.27.1:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.27.2.tgz#84463226f7f36dc33592f6f4ed6374c48306c3f1"
+  integrity sha512-SbiLPU40JuJniHexQSAgad32hfwd+DRUdwF2PlVuI5RZD0/vahUco7R8vD86J/tcEKKF9vZrUVwgtmGCqlCKyA==
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -3433,6 +3438,13 @@ react-bootstrap@^2.0.0-rc.0:
     react-transition-group "^4.4.2"
     uncontrollable "^7.2.1"
     warning "^4.0.3"
+
+react-confetti-cannon@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/react-confetti-cannon/-/react-confetti-cannon-0.10.1.tgz#b3c6e7d7b2a10607ab1bdf9c4ef9bdfb6104c509"
+  integrity sha512-ConK69rXZ/eJ/e2tDDpAa7s+6hb4I8ZnpaRamhri7ds+MiCz4U0Icpjs+/GlObh9H/1d4mQUhIzMWmBwxm+6aQ==
+  dependencies:
+    ramda "^0.27.1"
 
 react-dark-mode@^1.0.0:
   version "1.0.0"

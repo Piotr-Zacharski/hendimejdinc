@@ -13,6 +13,7 @@ import { Col, Row } from 'react-bootstrap'
 import {Alert} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ConfettiCannon from "./ConfettiCannon";
 
 const patterns = [
     {name: 'Dolores' , value: 'Dolores'},
@@ -212,8 +213,10 @@ export default function Input() {
     const classes = useStyles()
     const form = useRef()
     const [alert, setAlert] = useState(null)
+    const [cannon, setCannon] = useState(null)
 
     const info = <Alert severity="success" sx={{ width: 568, margin: '20px auto' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
+    const boom = <ConfettiCannon />
 
     const SERVICE_ID = 'formularz'
     const TEMPLATE_ID = 'template_cyejmfu'
@@ -225,6 +228,7 @@ export default function Input() {
             function (result) {
                 console.log(result.text)
                 setAlert(info)
+                setCannon(boom)
                 setTimeout(() => {
                     setAlert(null)
                 }, 6000)
@@ -503,6 +507,7 @@ export default function Input() {
                         }
                 </form>
                 {alert}
+                {cannon}
             </div>
         </ThemeProvider>
     )
