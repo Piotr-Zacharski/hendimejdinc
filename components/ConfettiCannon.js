@@ -9,21 +9,6 @@ const ConfettiCannon = () => {
     const launchPoints = useMemo(
         () => [
             () => ({
-                x: 0,
-                y: window.innerHeight,
-                angle: 850,
-            }),
-            () => ({
-                x: window.innerWidth,
-                y: window.innerHeight,
-                angle: -850,
-            }),
-        ],
-        [],
-    );
-    const launchPointsMobile = useMemo(
-        () => [
-            () => ({
                 x: 50,
                 y: window.innerHeight,
                 angle: 0,
@@ -39,7 +24,7 @@ const ConfettiCannon = () => {
 
     return (
         <Confetti
-            launchPoints = {isMobile ? launchPointsMobile : launchPoints}
+            launchPoints = {launchPoints}
             burstAmount ={150}
             afterBurstAmount ={50}
             delay ={0}
