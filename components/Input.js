@@ -213,7 +213,7 @@ export default function Input() {
     const form = useRef()
     const [alert, setAlert] = useState(null)
 
-    const info = <Alert severity="success" sx={{ width: '100%' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
+    const info = <Alert severity="success" sx={{ width: 568, margin: '20px auto' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
 
     const SERVICE_ID = 'formularz'
     const TEMPLATE_ID = 'template_cyejmfu'
