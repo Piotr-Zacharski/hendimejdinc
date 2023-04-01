@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ConfettiCannon from "./ConfettiCannon";
 
+
 const patterns = [
     {name: 'Dolores' , value: 'Dolores'},
         {name: 'Halszka' , value: 'Halszka'},
@@ -217,7 +218,6 @@ export default function Input() {
 
     const info = <Alert severity="success" sx={{ width: 568, margin: '20px auto' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
     const boom = <ConfettiCannon />
-
     const SERVICE_ID = 'formularz'
     const TEMPLATE_ID = 'template_cyejmfu'
     const USER_ID = 'e9aXqh1wWz7R1VjQi'
@@ -287,6 +287,17 @@ export default function Input() {
     const cordText = "wybrano przędzę";
     const yarnText = "wybrano sznurek";
     const remarksText = "Brak uwag";
+
+    const defaults = {
+        spread: 360,
+        ticks: 50,
+        gravity: 0,
+        decay: 0.94,
+        startVelocity: 30,
+        shapes: ['star'],
+        colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
+    };
+
 
     return (
         <ThemeProvider theme={theme}>

@@ -10,13 +10,13 @@ const ConfettiCannon = () => {
         () => [
             () => ({
                 x: 0,
-                y: 0,
-                angle: -850,
+                y: window.innerHeight,
+                angle: 850,
             }),
             () => ({
                 x: window.innerWidth,
-                y: 0,
-                angle: 850,
+                y: window.innerHeight,
+                angle: -850,
             }),
         ],
         [],
