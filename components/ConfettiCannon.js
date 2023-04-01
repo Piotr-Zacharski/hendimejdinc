@@ -1,11 +1,8 @@
 import React, {useMemo} from 'react'
 import {Confetti} from "react-confetti-cannon";
-import {useMediaQuery} from "@mui/material";
-
 
 
 const ConfettiCannon = () => {
-    const isMobile = useMediaQuery('(max-width:960px)');
     const launchPoints = useMemo(
         () => [
             () => ({
