@@ -2,6 +2,8 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Paper, Grid } from '@material-ui/core'
+import Link from "next/link";
+import styled from "styled-components";
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -46,6 +48,15 @@ export const getStaticProps = async ({ params }) => {
     }
 }
 
+const StyledLink = styled.p`
+  font-size: 16px;
+  cursor: pointer;
+  &:hover {
+  color: #B76E79;
+  text-decoration: underline;
+}
+`;
+
 export default function ProductDetails({ product }) {
     if (!product) return <h2>Ooops...!</h2>
 
@@ -72,6 +83,7 @@ export default function ProductDetails({ product }) {
                     <Grid item xs={7}>
                         <div className="method">
                             {documentToReactComponents(description)}
+                            <Link href={'/gallery'}><StyledLink>Wybierz swój kolor tutaj</StyledLink></Link>
                         </div>
                     </Grid>
                 </Grid>

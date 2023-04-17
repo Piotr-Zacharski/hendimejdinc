@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     text: {
         color: '#b76e79',
         '&:hover': {
-            textDecoration: 'underline 3px solid #FFD700',
+            textDecoration: 'underline 2px solid #B76E79',
         },
     },
 })

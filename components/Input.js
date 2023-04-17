@@ -10,10 +10,11 @@ import SubmitButton from './SubmitButton'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
 import { Col, Row } from 'react-bootstrap'
-import {Alert} from "@mui/material";
+import {Alert, Tooltip} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ConfettiCannon from "./ConfettiCannon";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
 const patterns = [
@@ -210,6 +211,9 @@ const StyledText = styled.h3`
         align-items: center;
     }
 `
+ const StyledSpan = styled.span`
+  margin-left: 5px;
+ `;
 export default function Input() {
     const classes = useStyles()
     const form = useRef()
@@ -287,6 +291,16 @@ export default function Input() {
     const cordText = "wybrano przędzę";
     const yarnText = "wybrano sznurek";
     const remarksText = "Brak uwag";
+    const tooltipInfo = [{id: 1, intro: "Torebki i plecaki, które tworzę, są dopasowane do Twoich preferencji."},
+        {id: 2, decision: "Ty decydujesz o:"},
+        {id: 3, option: "- kolorze torebki/plecaka oraz metalowych dodatków:"},
+        {id: 4, colors: "Torebka może zostać wykonana w wybranym przez Ciebie kolorze - karta kolorów sznurka oraz przędzy t-shirt yarn znajduje się w zakładce \"Kolory\"."},
+        {id: 5 , metal: "Do wyboru jest również kolor okuć (metalowych kółek, karabińczyków, klamry) oraz łańcuszka. Dostępna jest wersja srebrna oraz złota."},
+        {id: 6, belt: "- długości paska dołączonego do torebki:"},
+        {id: 7, beltLength: "Pasek  metalowy może mieć długość 100 cm lub 120 cm (w przypadku paska plecionego w torebkach dla dzieci można zdecydować o innej długości)."},
+        {id: 8, remember:  "Pamiętaj, że możliwa jest niewielka rozbieżność w wymiarze torebki lub plecaka - różnica +/- 2 cm od podanych przeze mnie wymiarów wynika ze względu na to, że produkty wykonywane są ręcznie."},
+        {id: 9, date: "Termin realizacji zamówienia wynosi 14-21 dni."}];
+    const otherLength = "w przypadku paska plecionego do torebki lub rączek do plecaka (wpisz wybraną długość w rubryce \"Uwagi dodatkowe\")"
 
 
 
@@ -295,7 +309,30 @@ export default function Input() {
             <div className={classes.container}>
                 <form ref={form} onSubmit={sendEmail}>
                     <div className={classes.form}>
-                    <StyledText>Skomponuj swoją torebkę/plecak</StyledText>
+                    <StyledText>Skomponuj swoją torebkę/plecak<StyledSpan /> <Tooltip placement="right-end" title={tooltipInfo.map(item => (
+                        <>
+                        <strong><p>{item.intro}</p></strong>
+                        <strong><p>{item.decision}</p></strong>
+                        <p>{item.option}</p>
+                        <p>{item.colors}</p>
+                        <p>{item.metal}</p>
+                        <p>{item.belt}</p>
+                        <p>{item.beltLength}</p>
+                        <p>{item.remember}</p>
+                        <strong><p>{item.date}</p></strong>
+                        </>
+                    ))}>
+                        <button
+                            style={{
+                                border: 'none',
+                                backgroundColor: 'transparent',
+                                marginTop: 1,
+                                padding: 0,
+                            }}
+                        >
+                            <InfoOutlinedIcon />
+                        </button>
+                    </Tooltip></StyledText>
                     <FormControl
                         required
                         className={classes.formControl}
@@ -379,6 +416,18 @@ export default function Input() {
                         >
                             <MenuItem value={100}><Box sx={{display: "flex"}}>100 cm</Box></MenuItem>
                             <MenuItem value={120}><Box sx={{display: "flex"}}>120 cm</Box></MenuItem>
+                            <MenuItem value={'inna'}><Box sx={{display: "flex", flexGrow: 1}}>inna <Tooltip placement="right" title={otherLength}>
+                                <button
+                                    style={{
+                                        border: 'none',
+                                        backgroundColor: 'transparent',
+                                        marginTop: 1,
+                                        padding: 0,
+                                    }}
+                                >
+                                    <InfoOutlinedIcon style={{fontSize: 16, padding: 0.3, justifyContent: 'center', alignItems: 'center', marginLeft: 3}}/>
+                                </button>
+                            </Tooltip></Box></MenuItem>
                         </Select>
                     </FormControl>
                         <FormControl
@@ -469,19 +518,19 @@ export default function Input() {
                                     <ul className="list-group mt-3">
                                         <li className="list-group-item text-start">
                                                 Wzór:
-                                            <strong>{name === ' ' ? ' N/A' : ' ' + name.charAt(0).toUpperCase() + name.slice(1)}</strong>
+                                            <strong>{name === ' ' ? 'N/A' : ' ' + name.charAt(0).toUpperCase() + name.slice(1)}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Kolor okucia:
-                                            <strong>{color === ' ' ? ' N/A' : ' ' + color}</strong>
+                                            <strong>{color === ' ' ? 'N/A' : ' ' + color}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Rodzaj paska:
-                                            <strong>{type === ' ' ? ' N/A' : ' ' + type}</strong>
+                                            <strong>{type === ' ' ? 'N/A' : ' ' + type}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Długość paska:
-                                            <strong>{length === ' ' ? ' N/A' : ' ' + `${length} cm`}</strong>
+                                            <strong>{length === ' ' ? 'N/A' : ' ' + `${length} cm` || length === 'inna' ? ' ' + `${length}` : ' ' + 'N/A'}</strong>
                                         </li>
                                         <li className="list-group-item text-start">
                                                 Kolor sznurka:
