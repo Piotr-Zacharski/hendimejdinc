@@ -1,11 +1,11 @@
 import { createClient } from 'contentful'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Paper, Grid } from '@material-ui/core'
 import Link from "next/link";
 import styled from "styled-components";
-import Magnifier from "react-magnifier";
-
+// import Magnifier from "react-magnifier";
+import {useMediaQuery} from "@mui/material";
 
 
 const client = createClient({
@@ -62,6 +62,8 @@ const StyledLink = styled.p`
 
 export default function ProductDetails({ product }) {
 
+    const isMobile = useMediaQuery('maxWidth: 375px')
+
     if (!product) return <h2>Ooops...!</h2>
 
     const { featuredImage, title, price, description } = product.fields
@@ -76,22 +78,22 @@ export default function ProductDetails({ product }) {
                     {title} <p className="price">{price},00 zł</p>
                 </h2>
                 <Grid container>
-                    <Grid item xs={5}>
-                        <Magnifier src={'https:' + featuredImage.fields.file.url}
-                                   width={540}
-                                   mgWidth={150}
-                                   mgHeight={150}
-                                   mgBorderWidth={1}
-                                   zoomFactor={0.8}
-                        />
-                                {/*<Image*/}
-                                {/*    src={'https:' + featuredImage.fields.file.url}*/}
-                                {/*    width={featuredImage.fields.file.details.image.width}*/}
-                                {/*    height={featuredImage.fields.file.details.image.height}*/}
-                                {/*    className="feature"*/}
-                                {/*/>*/}
+                    <Grid item xs={12} md={5}>
+                        {/*<Magnifier src={'https:' + featuredImage.fields.file.url}*/}
+                        {/*           width={ isMobile ? 300 : 540}*/}
+                        {/*           mgWidth={170}*/}
+                        {/*           mgHeight={170}*/}
+                        {/*           mgBorderWidth={1}*/}
+                        {/*           zoomFactor={1.0}*/}
+                        {/*/>*/}
+                                <Image
+                                    src={'https:' + featuredImage.fields.file.url}
+                                    width={isMobile ? 300 : featuredImage.fields.file.details.image.width}
+                                    height={featuredImage.fields.file.details.image.height}
+                                    className="feature"
+                                />
                     </Grid>
-                    <Grid item xs={7}>
+                    <Grid item xs={12} md={7}>
                         <div className="method">
                             {documentToReactComponents(description)}
                             <Link href={'/gallery'}><StyledLink>Wybierz swój kolor tutaj</StyledLink></Link>
@@ -113,12 +115,13 @@ export default function ProductDetails({ product }) {
                     text-align: center;
                     display: block;
                     height: 100%;
-                    maxwidth: 500px;
+                    max-width: 500px;
                 }
                 .container {
                     margin: 50px auto;
                     align-items: center;
                     justify-content: center;
+                    width: 100%;
                 }
                 .method {
                     width: 100%;
@@ -128,7 +131,7 @@ export default function ProductDetails({ product }) {
                 }
                 .price {
                     margin: 0;
-                    padding: 5;
+                    padding: 5px;
                     color: white;
                     font-size: 1rem;
                     text-transform: lowercase;
@@ -143,7 +146,7 @@ export default function ProductDetails({ product }) {
                     padding: 20px;
                     position: relative;
                     top: 20px;
-                    maxwidth: 500px;
+                    max-width: 500px;
                     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
                 }
                 .info p {

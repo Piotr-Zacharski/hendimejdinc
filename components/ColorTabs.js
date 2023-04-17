@@ -100,7 +100,7 @@ export default function ColorTabs() {
 
     return (
         <ThemeProvider theme={theme}>
-        <Box sx={{ width: '100%' }}>
+        <Box>
             <Box>
                 <StyledTabs value={value} onChange={handleChange}
                       aria-label="basic tabs example" centered indicatorColor="primary"

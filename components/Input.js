@@ -297,7 +297,7 @@ export default function Input() {
         {id: 7, beltLength: "Pasek  metalowy może mieć długość 100 cm lub 120 cm (w przypadku paska plecionego w torebkach dla dzieci można zdecydować o innej długości)."},
         {id: 8, remember:  "Pamiętaj, że możliwa jest niewielka rozbieżność w wymiarze torebki lub plecaka - różnica +/- 2 cm od podanych przeze mnie wymiarów wynika ze względu na to, że produkty wykonywane są ręcznie."},
         {id: 9, date: "Termin realizacji zamówienia wynosi 14-21 dni."}];
-    const otherLength = "w przypadku paska plecionego do torebki lub rączek do plecaka (wpisz wybraną długość w rubryce \"Uwagi dodatkowe\")"
+    const otherLength = "w przypadku paska plecionego do torebki lub rączek do plecaka wpisz wybraną długość w rubryce \"Uwagi dodatkowe\""
 
 
 

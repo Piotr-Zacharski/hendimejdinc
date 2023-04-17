@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
+import {useMediaQuery} from "@mui/material";
 
 
 const useStyles = makeStyles({
@@ -74,10 +75,11 @@ const tyarns = [
 ]
 
 const TShirtYarn = () => {
+    const isMobile = useMediaQuery('maxWidth: 375px')
     const classes = useStyles();
     return (
         <div className={classes.container}>
-        <Grid container xs={12} direction="row" className={classes.grid}>
+        <Grid container xs={4} md={12} sx={{direction: isMobile ? "column" : "row"}} className={classes.grid}>
             { tyarns.map((tyarn) => (
                     <Card
                     className={classes.card}

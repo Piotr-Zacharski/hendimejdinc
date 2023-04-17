@@ -94,7 +94,7 @@ const Cord = () => {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-        <Grid container xs={12} direction="row" className={classes.grid}>
+        <Grid container xs={3} md={12} direction="row" className={classes.grid}>
             { cords.map((cord) => (
                     <Card
                     className={classes.card}
