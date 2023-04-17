@@ -13,7 +13,6 @@ import { Col, Row } from 'react-bootstrap'
 import {Alert, Tooltip} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ConfettiCannon from "./ConfettiCannon";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
@@ -111,11 +110,11 @@ const cords = [
     {name: 'Lodowy', url: '/cord/Lodowy.png'},
     {name: 'Malina', url: '/cord/Malina.png'},
     {name: 'Mandarynka', url: '/cord/Mandarynka.png'},
-    {name: 'Melanż jeans-róż', url: '/cord/Melanz_jeans-roz.png'},
-    {name: 'Melanż róż-granat', url: '/cord/Melanz_roz-granat.png'},
-    {name: 'Melanż róż-szary', url: '/cord/Melanz_roz-szary.png'},
-    {name: 'Melanż śliwka-malina-petrol', url: '/cord/Melanz_sliwka-malina-petrol.png'},
-    {name: 'Melanż złoty', url: '/cord/Melanz_zloty.png'},
+    {name: 'Melanż 1 (jeans-róż)', url: '/cord/Melanz_jeans-roz.png'},
+    {name: 'Melanż 2 (róż-granat)', url: '/cord/Melanz_roz-granat.png'},
+    {name: 'Melanż 3 (róż-szary)', url: '/cord/Melanz_roz-szary.png'},
+    {name: 'Melanż 4 (śliwka-malina-petrol)', url: '/cord/Melanz_sliwka-malina-petrol.png'},
+    {name: 'Melanż 5 (złoty)', url: '/cord/Melanz_zloty.png'},
     {name: 'Miód', url: '/cord/Miod.png'},
     {name: 'Mleczna czekolada', url: '/cord/Mleczna_czekolada.png'},
     {name: 'Morski', url: '/cord/Morski.png'},
@@ -218,10 +217,8 @@ export default function Input() {
     const classes = useStyles()
     const form = useRef()
     const [alert, setAlert] = useState(null)
-    const [cannon, setCannon] = useState(null)
 
     const info = <Alert severity="success" sx={{ width: 568, margin: '20px auto' }} style={{backgroundColor: '#d5aab0', color: 'white', justifyContent: 'center'}}>Twoje zamówienie zostało wysłane.</Alert>
-    const boom = <ConfettiCannon />
     const SERVICE_ID = 'formularz'
     const TEMPLATE_ID = 'template_cyejmfu'
     const USER_ID = 'e9aXqh1wWz7R1VjQi'
@@ -558,7 +555,6 @@ export default function Input() {
                         }
                 </form>
                 {alert}
-                {cannon}
             </div>
         </ThemeProvider>
     )

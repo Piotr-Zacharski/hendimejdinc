@@ -1,9 +1,12 @@
 import { createClient } from 'contentful'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Paper, Grid } from '@material-ui/core'
 import Link from "next/link";
 import styled from "styled-components";
+import Magnifier from "react-magnifier";
+
+
 
 const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
@@ -58,6 +61,7 @@ const StyledLink = styled.p`
 `;
 
 export default function ProductDetails({ product }) {
+
     if (!product) return <h2>Ooops...!</h2>
 
     const { featuredImage, title, price, description } = product.fields
@@ -73,12 +77,19 @@ export default function ProductDetails({ product }) {
                 </h2>
                 <Grid container>
                     <Grid item xs={5}>
-                        <Image
-                            src={'https:' + featuredImage.fields.file.url}
-                            width={featuredImage.fields.file.details.image.width}
-                            height={featuredImage.fields.file.details.image.height}
-                            className="feature"
+                        <Magnifier src={'https:' + featuredImage.fields.file.url}
+                                   width={540}
+                                   mgWidth={150}
+                                   mgHeight={150}
+                                   mgBorderWidth={1}
+                                   zoomFactor={0.8}
                         />
+                                {/*<Image*/}
+                                {/*    src={'https:' + featuredImage.fields.file.url}*/}
+                                {/*    width={featuredImage.fields.file.details.image.width}*/}
+                                {/*    height={featuredImage.fields.file.details.image.height}*/}
+                                {/*    className="feature"*/}
+                                {/*/>*/}
                     </Grid>
                     <Grid item xs={7}>
                         <div className="method">

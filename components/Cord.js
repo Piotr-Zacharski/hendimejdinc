@@ -80,11 +80,11 @@ const cords = [
     {name: 'Szary', url: '/cord/Szary.png'},
     {name: 'Grafit', url: '/cord/Grafit.png'},
     {name: 'Czarny', url: '/cord/Czarny.png'},
-    {name: 'Melanż jeans-róż', url: '/cord/Melanz_jeans-roz.png'},
-    {name: 'Melanż róż-granat', url: '/cord/Melanz_roz-granat.png'},
-    {name: 'Melanż róż-szary', url: '/cord/Melanz_roz-szary.png'},
-    {name: 'Melanż śliwka-malina-petrol', url: '/cord/Melanz_sliwka-malina-petrol.png'},
-    {name: 'Melanż złoty', url: '/cord/Melanz_zloty.png'},
+    {name: 'Melanż 1', url: '/cord/Melanz_jeans-roz.png'},
+    {name: 'Melanż 2', url: '/cord/Melanz_roz-granat.png'},
+    {name: 'Melanż 3', url: '/cord/Melanz_roz-szary.png'},
+    {name: 'Melanż 4', url: '/cord/Melanz_sliwka-malina-petrol.png'},
+    {name: 'Melanż 5', url: '/cord/Melanz_zloty.png'},
 ]
 
 
@@ -101,7 +101,7 @@ const Cord = () => {
                         key={cord.name}
                 >
                     <Image src={cord.url} alt={cord.name} width={100} height={100} />
-                        <p style={{fontSize: 11, marginBottom: 5 }}>{cord.name}</p>
+                        <p style={{fontSize: 10, marginBottom: 5 }}>{cord.name.toUpperCase()}</p>
                 </Card>
             )
             )

@@ -56,7 +56,7 @@ const tyarns = [
     {name: 'Limonka', url: '/tyarn/Limonka.png'},
     {name: 'Zieleń', url: '/tyarn/Zielen.png'},
     {name: 'Khaki', url: '/tyarn/Khaki.png'},
-    {name: 'Szałwia', url: '/tyarn/Szalwia.png'},
+    {name: 'Szałwia', url: '/tyarn/szalwia.png'},
     {name: 'Jodła', url: '/tyarn/Jodla.png'},
     {name: 'Pastelowa mięta', url: '/tyarn/Pastelowa_mieta.png'},
     {name: 'Brudna mięta', url: '/tyarn/Brudna_mieta.png'},
@@ -84,7 +84,7 @@ const TShirtYarn = () => {
                         key={tyarn.name}
                 >
                     <Image src={tyarn.url} alt={tyarn.name} width={100} height={100} />
-                        <p style={{fontSize: 11, marginBottom: 5 }}>{tyarn.name}</p>
+                        <p style={{fontSize: 10, marginBottom: 5 }}>{tyarn.name.toUpperCase()}</p>
                 </Card>
             )
             )
