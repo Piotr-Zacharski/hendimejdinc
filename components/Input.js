@@ -126,7 +126,7 @@ const cords = [
     {name: 'Popielaty', url: '/cord/Popielaty.png'},
     {name: 'Różowy krem', url: '/cord/Rozowy_krem.png'},
     {name: 'Siwy', url: '/cord/Siwy.png'},
-    {name: 'Szałwia', url: '/cord/Szalwia.png'},
+    {name: 'Szałwia', url: '/cord/szalwia.png'},
     {name: 'Szary', url: '/cord/Szary.png'},
     {name: 'Słodki róż', url: '/cord/Slodki_roz.png'},
     {name: 'Śliwka', url: '/cord/Sliwka.png'},
