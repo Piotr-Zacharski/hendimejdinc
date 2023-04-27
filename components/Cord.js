@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Card from "@material-ui/core/Card";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
+import {useMediaQuery} from "@mui/material";
 
 
 const useStyles = makeStyles({
@@ -15,10 +16,9 @@ const useStyles = makeStyles({
     },
     container: {
         margin: '0 auto',
-        width: 960,
+        width: '100%',
         display: 'grid',
         gridTemplateColumns: 'repeat(12, auto-fill, 100px)',
-        padding: '10px',
 }
 });
 
@@ -91,10 +91,11 @@ const cords = [
 
 
 const Cord = () => {
+    const isMobile = useMediaQuery('maxWidth: 375px')
     const classes = useStyles();
     return (
         <div className={classes.container}>
-        <Grid container xs={3} md={12} direction="row" className={classes.grid}>
+        <Grid container xs={12} md={12} sx={{direction: isMobile ? "column" : "row", padding: isMobile ? '10px' : '50px'}} className={classes.grid}>
             { cords.map((cord) => (
                     <Card
                     className={classes.card}

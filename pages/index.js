@@ -1,5 +1,19 @@
 import { createClient } from 'contentful'
 import CardTwo from '../components/CardTwo'
+import styled from "styled-components";
+
+
+const StyledContainer = styled.div`
+  display: inline-flex;
+  align-self: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px 80px;
+  text-align: center;
+  justify-content: center;
+  margin: 20px 0 auto;
+  flex-wrap: wrap;
+  max-width: 1200px;
+`;
 
 export async function getStaticProps() {
     const client = createClient({
@@ -19,25 +33,10 @@ export async function getStaticProps() {
 
 export default function Products({ products }) {
     return (
-        <div className="product-list">
+        <StyledContainer>
             {products.map((product) => (
                 <CardTwo key={product.sys.id} product={product} />
             ))}
-
-            <style jsx>{`
-                .product-list {
-                    display: inline-flex;
-                    align-self: center;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-gap: 50px 80px;
-                    text-align: center;
-                    justify-content: center;
-                    margin: 0 auto;
-                    margin-top: 20px;
-                    flex-wrap: wrap;
-                    max-width: 1200px;
-                }
-            `}</style>
-        </div>
+        </StyledContainer>
     )
 }

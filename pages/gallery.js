@@ -1,13 +1,12 @@
 import React from 'react'
 import ColorTabs from "../components/ColorTabs";
-import Box from "@mui/material/Box";
 
 
 export default function Gallery() {
 
     return (
-      <Box >
+      <div style={{width: '100%'}}>
           <ColorTabs />
-        </Box>
+        </div>
     )
 }

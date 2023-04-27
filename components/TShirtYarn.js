@@ -7,8 +7,6 @@ import {useMediaQuery} from "@mui/material";
 
 const useStyles = makeStyles({
     card: {
-        width: '100px',
-        height: '125px',
         margin: 17,
         '&:hover': {
             transform: 'scale(1.10)',
@@ -16,9 +14,8 @@ const useStyles = makeStyles({
     },
     container: {
         margin: '0 auto',
-        width: 960,
+        width: '100%',
         display: 'grid',
-        gridTemplateColumns: 'repeat(12, auto-fill, 100px)',
         padding: '10px',
 }
 });
@@ -79,13 +76,14 @@ const TShirtYarn = () => {
     const classes = useStyles();
     return (
         <div className={classes.container}>
-        <Grid container xs={4} md={12} sx={{direction: isMobile ? "column" : "row"}} className={classes.grid}>
+        <Grid container xs={12} md={12} sx={{direction: isMobile ? "column" : "row", gridTemplateColumns: isMobile ? 'repeat(3, auto-fill, 50px)': 'repeat(12, auto-fill, 100px)' }} className={classes.grid}>
             { tyarns.map((tyarn) => (
                     <Card
+                        sx={{width: isMobile ? 60 : 100, height: isMobile ? 80 : 125}}
                     className={classes.card}
                         key={tyarn.name}
                 >
-                    <Image src={tyarn.url} alt={tyarn.name} width={100} height={100} />
+                    <Image src={tyarn.url} alt={tyarn.name} width={isMobile ? 60 : 100} height={isMobile ? 80 : 100} />
                         <p style={{fontSize: 10, marginBottom: 5 }}>{tyarn.name.toUpperCase()}</p>
                 </Card>
             )
