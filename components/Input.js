@@ -17,12 +17,13 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 
 const patterns = [
-    {name: 'Dolores' , value: 'Dolores'},
-        {name: 'Halszka' , value: 'Halszka'},
-        {name: 'Janette' , value: 'Janette'},
-        {name: 'Makkaresh' , value: 'Makkaresh'},
-        {name: 'Margerita' , value: 'Margerita'},
-        {name: 'Myszka' , value: 'Myszka'},
+    {name: 'Plecak Dolores' , value: 'Plecak Dolores'},
+        {name: 'Torebka Halszka' , value: 'Torebka Halszka'},
+        {name: 'Torebka Janette' , value: 'Torebka Janette'},
+        {name: 'Torebka Makkaresh' , value: 'Torebka Makkaresh'},
+        {name: 'Torebka Margerita' , value: 'Torebka Margerita'},
+        {name: 'Torebka Myszka' , value: 'Torebka Myszka'},
+        {name: 'Torebka Myszka 2' , value: 'Torebka Myszka 2'},
 ]
 
 const tyarns = [
