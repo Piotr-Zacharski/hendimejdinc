@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import error from '../static/error.jpg'
+import error from '../public/error.jpg'
 
 
 const NotFound = () => {

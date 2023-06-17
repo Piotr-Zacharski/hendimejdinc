@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <link rel="shortcut icon" href="/static/favicon.ico" />
+                <link rel="shortcut icon" href="/favicon.ico" />
                 <title>HendiMejdi</title>
             </Head>
             <Layout>
