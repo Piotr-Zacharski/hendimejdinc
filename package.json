@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.0.0",
-    "@emailjs/browser": "^3.6.2",
+    "@emailjs/browser": "^3.9.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fortawesome/fontawesome-free": "^5.15.4",
