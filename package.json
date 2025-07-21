@@ -18,7 +18,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
     "@mui/styled-engine-sc": "^5.10.3",
-    "antd": "^4.16.9",
+    "antd": "^4.23.6",
     "bootstrap": "^5.1.1",
     "canvas-confetti": "^1.6.0",
     "contentful": "^8.4.0",
